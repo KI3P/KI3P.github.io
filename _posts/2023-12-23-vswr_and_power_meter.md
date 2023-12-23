@@ -2,7 +2,7 @@
 layout: default
 author: KO4THB
 title: VSWR and Power Meter
-usemathjax: true
+use_math: true
 ---
 
 # Introduction
