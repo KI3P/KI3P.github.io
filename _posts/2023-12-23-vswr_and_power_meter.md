@@ -7,17 +7,16 @@ use_math: true
 
 # Introduction
 
-A VSWR meter is an important part of any amateur radio station. It measures how well matched your antenna is, tells you your radiated power
+A VSWR meter is an important part of any amateur radio station. It measures how well matched your antenna is and measures your transmitted power.
 
-Goals:
+The goals for the device I want to build are:
 
 * Measure VSWR.
-* Measure output power.
+* Measure output power up to 100 W power level limit.
 * 3 MHz to 30 MHz operation.
-* 100W power level limit.
 * Use the Raspberry Pico and OLED display I had laying around.
 
-Credit: thanks to [G3TXQ](http://karinya.net/g3txq/swr_meter/) for sharing his SWR meter design and [schematic diagram](http://karinya.net/g3txq/swr_meter/schematic.jpg). Thanks to N7DDC for sharing the design of the [ATU-100 antenna tuner](https://github.com/Dfinitski/N7DDC-ATU-100-mini-and-extended-boards). And to W2AEW for his [excellent explanation](https://www.youtube.com/watch?v=byF1FLdbUiA) of how a directional coupler works. All these were tremendously helpful as I designed my own VSWR meter.
+Credit: thanks to [G3TXQ](http://karinya.net/g3txq/swr_meter/) for sharing his SWR meter design and [schematic diagram](http://karinya.net/g3txq/swr_meter/schematic.jpg). Thanks to N7DDC for sharing the design of the [ATU-100 antenna tuner](https://github.com/Dfinitski/N7DDC-ATU-100-mini-and-extended-boards). And to W2AEW for his [excellent explanation](https://www.youtube.com/watch?v=byF1FLdbUiA) of how a directional coupler works. IN3OTD has an [online calculator](https://www.qsl.net/in3otd/parallr.html) for synthesizing arbitrary resistor values from standard value.  All these were tremendously helpful as I designed my own VSWR meter.
 
 # TL;DR The finished design
 
@@ -102,11 +101,11 @@ A better approach is to build a directional couple with a "reasonable" number of
 
 ![Directional coupler with power levels](/assets/images/directional_coupler_diagram.png)
 
-I decided to use 10 turns, which gives me a coupling factor of `d = -20 dB`. I then need at least 30 dB of attenuation to reduce the power level to the required level.
+I decided to use 10 turns, which gives me a coupling factor of `d = -20 dB`. I then need at least 30 dB of attenuation to reduce the power to the required level.
 
 ### Attenuators
 
-Attenuators are easy to build using Pi resistor circuits. There are [many](https://www.pasternack.com/t-calculator-pi-attn.aspx) [online](https://www.omnicalculator.com/other/pi-attenuator) [calculators](https://chemandy.com/calculators/matching-pi-attenuator-calculator.htm) that will give you the appropriate resistor values to achieve a specified attenuation level. A design consideration to pay attention to is the amount of heat the resistors will need to safely dissipate. In our case, we attenuators will take 30 dBm (1 W) of input power and reduce it to 0 dBm (1 mW), dissipating the difference of 0.999 W as heat.
+Attenuators are easy to build using Pi resistor circuits. There are [many](https://www.pasternack.com/t-calculator-pi-attn.aspx) [online](https://www.omnicalculator.com/other/pi-attenuator) [calculators](https://chemandy.com/calculators/matching-pi-attenuator-calculator.htm) that will give you the appropriate resistor values to achieve a specified attenuation level. A design consideration to pay attention to is the amount of heat the resistors will need to safely dissipate. In our case, the attenuators will take 30 dBm (1 W) of input power and reduce it to 0 dBm (1 mW), dissipating the difference of 0.999 W as heat.
 
 I opted to split the attenuator into two stages of attenuation: 16 dB followed by 20 dB. I also used parallel resistors to more accurately achieve the required resistor values. IN3OTD has a great [online calculator](https://www.qsl.net/in3otd/parallr.html) that will help you find the right combinations of standard resistor values. I opted to use the E24 series, which worked well enough.
 
@@ -128,7 +127,9 @@ The final assembled system looks like this:
 
 # Pico micropython code
 
-The Pico is configured to run micropython. This is the code running on it.
+The microcontroller samples the voltages produced by the power detector stages and does the math for converting them to equivalent powers, and calculating the SWR. I measure the voltage in two ways: the peak voltage observed during the measurement window and the RMS voltage. The peak voltage is relevant for regulatory reasons: the Peak Emitted Power (PEP) of the station is limited by law. The RMS voltage measurement might be useful to know too - I measure it because I can, not because I have a particular reason for doing so.
+
+The Pico is configured to run micropython. This is the code running on it. The external `ssd1306` library I used was [this one](https://github.com/stlehmann/micropython-ssd1306). The other libraries are part of standard micropython.
 
 ```python
 import machine
@@ -211,3 +212,39 @@ while True:
 
 # Testing
 
+## Coupling factor
+
+The coupling factor of the directional coupler board should be -56 dB. The factor, as measured with a NanoVNA, meets this value over the desired band. The blue trace is Return Loss, and the red trace is Coupling Factor. Frequency span is 1 MHz to 55 MHz.
+
+![Coupling factor](/assets/images/RFin-to-FWD.png)
+
+## SWR accuracy
+
+![SWR test configuration](/assets/images/swr_test_configuration.png)
+
+I tested the measured SWR by terminating the output of the SWR meter with a variety of resistor values. By varying the value R of the resistor, I can change the SWR of the circuit in a predictable way. The SWR varies with resistance R as follows:
+
+$$
+\Gamma = \frac{ R - 50 }{R + 50 }
+$$
+
+$$
+\text{SWR} = \frac{ 1 + |\Gamma| }{ 1 - |\Gamma| }
+$$
+
+I only had low power (1/4 W) resistors on hand for the test, so my transceiver output was very low, only 7 mW, for the test.
+
+This method of measuring SWR accuracy has a significant shortcoming; it assumes that my transceiver's output impedance is exactly 50 Ohms (this is baked into the SWR equation above). I'm sure that my transceiver's output impedance isn't exactly this, but it's the best I can do for now. I'll see if I can come up with a better measurement method in the future.
+
+Regardless, the results are tabulated and plotted below. Better than 5% accuracy for "low" VSWRs of less than 3.0. I'm pretty happy with this!
+
+| R [Ohms] | True SWR | Vf [V] | Vr [V] | SWR measured | SWR error |
+|-|-|-|-|-|-|
+| 50   |  1    | 1.125 | 0.44 | 1.08 | 7.77% |
+| 68.7 |  1.374	| 1.119 | 0.74 | 1.39 | 0.99% |
+| 120.9 | 2.418 | 1.097	 | 0.906 | 2.33 | -3.50% |
+| 150.4 | 3.008 | 1.088 | 0.936 | 2.86 | -4.81% |
+| 327.7 | 6.554 | 1.072 | 0.998 | 5.69 | -13.14% |
+
+
+![SWR Measurement Accuracy](/assets/images/swr_accuracy_plot.png)
