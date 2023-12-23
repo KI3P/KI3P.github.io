@@ -7,5 +7,11 @@ plugins:
 
 markdown: kramdown
 
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: "default"
+
 domain: ko4thb.github.io
 url: https://ko4thb.github.io
