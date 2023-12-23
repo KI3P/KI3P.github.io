@@ -2,7 +2,8 @@
 layout: default
 ---
 
-A website devoted to sharing designs of amateur radio homebrew equipment.
+This is a website devoted to sharing designs of amateur radio homebrew equipment. I try to explain 
+how the systems work, some of the engineering tradeoffs, and testing.
 
 <ul>
   {% for post in site.posts %}
