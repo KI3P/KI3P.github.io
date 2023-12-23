@@ -30,7 +30,7 @@
     <script>
         MathJax = {
             tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
+                inlineMath: [['$', '$'], ['\\(', '\\)'], ['\\[','\\]']]
             }
         };
     </script>
@@ -76,6 +76,8 @@
       <section>
         <h1 id="introduction">Introduction</h1>
 
+<p>A VSWR meter is an important part of any amateur radio station. It measures how well matched your antenna is, tells you your radiated power</p>
+
 <p>Goals:</p>
 
 <ul>
@@ -86,7 +88,7 @@
   <li>Use the Raspberry Pico and OLED display I had laying around.</li>
 </ul>
 
-<p>Credit: thanks to <a href="http://karinya.net/g3txq/swr_meter/">G3TXQ</a> for sharing his SWR meter design and <a href="http://karinya.net/g3txq/swr_meter/schematic.jpg">schematic diagram</a>. And to W2AEW for his <a href="https://www.youtube.com/watch?v=byF1FLdbUiA">excellent explanation</a> of how a directional coupler works.</p>
+<p>Credit: thanks to <a href="http://karinya.net/g3txq/swr_meter/">G3TXQ</a> for sharing his SWR meter design and <a href="http://karinya.net/g3txq/swr_meter/schematic.jpg">schematic diagram</a>. Thanks to N7DDC for sharing the design of the <a href="https://github.com/Dfinitski/N7DDC-ATU-100-mini-and-extended-boards">ATU-100 antenna tuner</a>. And to W2AEW for his <a href="https://www.youtube.com/watch?v=byF1FLdbUiA">excellent explanation</a> of how a directional coupler works. All these were tremendously helpful as I designed my own VSWR meter.</p>
 
 <h1 id="tldr-the-finished-design">TL;DR The finished design</h1>
 
