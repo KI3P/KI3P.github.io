@@ -16,7 +16,7 @@ The goals for the device I want to build are:
 * 3 MHz to 30 MHz operation.
 * Use the Raspberry Pico and OLED display I had laying around.
 
-Credit: thanks to [G3TXQ](http://karinya.net/g3txq/swr_meter/) for sharing his SWR meter design and [schematic diagram](http://karinya.net/g3txq/swr_meter/schematic.jpg). Thanks to N7DDC for sharing the design of the [ATU-100 antenna tuner](https://github.com/Dfinitski/N7DDC-ATU-100-mini-and-extended-boards). And to W2AEW for his [excellent explanation](https://www.youtube.com/watch?v=byF1FLdbUiA) of how a directional coupler works. IN3OTD has an [online calculator](https://www.qsl.net/in3otd/parallr.html) for synthesizing arbitrary resistor values from standard value.  All these were tremendously helpful as I designed my own VSWR meter.
+Credit: thanks to [G3TXQ](http://karinya.net/g3txq/swr_meter/) for sharing his SWR meter design and [schematic diagram](http://karinya.net/g3txq/swr_meter/schematic.jpg). Thanks to N7DDC for sharing the design of the [ATU-100 antenna tuner](https://github.com/Dfinitski/N7DDC-ATU-100-mini-and-extended-boards). And to W2AEW for his [excellent explanation](https://www.youtube.com/watch?v=byF1FLdbUiA) of how a directional coupler works. [K6JCA's website](https://k6jca.blogspot.com) is a treasure trove of information. IN3OTD has an [online calculator](https://www.qsl.net/in3otd/parallr.html) for synthesizing arbitrary resistor values from standard value.  All these were tremendously helpful as I designed my own VSWR meter.
 
 # TL;DR The finished design
 
