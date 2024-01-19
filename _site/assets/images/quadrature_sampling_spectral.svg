@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="262.42511mm"
+   height="372.5mm"
+   viewBox="0 0 262.42511 372.5"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="quadrature_sampling_spectral.svg"
+   inkscape:export-filename="quadrature_sampling_spectral.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="0.53543895"
+     inkscape:cx="577.0966"
+     inkscape:cy="754.52112"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false"
+     inkscape:export-bgcolor="#ffffffff">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="10.25"
+       originy="75.25"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker20"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path20" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ArrowWide"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path11" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="DartArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Dart arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="scale(-0.5)"
+         id="path6" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(10.25,75.25)">
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 105,56.999998 V 20.128208"
+       id="path1"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 15.000003,54.999998 H 195"
+       id="path2"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       d="m 140,54.999998 c 1.06993,-2.266182 1.4216,-5.253978 5,-5.000001 h 15 c 9.59732,-0.0083 6.76799,-6.61288 10,-10.000001 3,-0.999998 1,-6.999997 2.6385,-10.562496 C 173,25 174,44.999998 175,49.999997 c 7.77625,2.198507 8.16379,-0.55063 10,0 4.81069,0.445811 4,3.000001 4.80183,4.952214 L 190,55.000001"
+       id="path3"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:0.999998, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 70.000004,55 c -1.06993,-2.266182 -1.4216,-5.253978 -5,-5.000001 h -15 c -9.59732,-0.0083 -6.76799,-6.61288 -10,-10.000001 -3,-0.999998 -1,-6.999997 -2.6385,-10.562496 -0.3615,-4.4375 -1.3615,15.562498 -2.3615,20.562497 -7.77625,2.198507 -8.16379,-0.55063 -10,0 -4.81069,0.445811 -4,3.000001 -4.80183,4.952214 l -0.19817,0.04779"
+       id="path4"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       d="m 160,56.999998 1e-5,-4.000002"
+       id="path5"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       d="m 49.950054,56.999998 0.01388,-3.959427"
+       id="path7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#0003ff;stroke-width:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 160,54.999998 V 34.999999"
+       id="path10" />
+    <path
+       style="fill:none;stroke:#0100ff;stroke-width:0.499999;stroke-dasharray:1.5, 0.499999;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 50.000004,54.999998 V 34.999999"
+       id="path12" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:1.32292px;direction:rtl;text-orientation:upright;white-space:pre;inline-size:7.66696;display:inline;fill:#000000;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="202.66696"
+       y="56.431114"
+       id="text28"
+       transform="translate(1.7059751,-0.20265422)"><tspan
+         x="202.66696"
+         y="56.431114"
+         id="tspan4"><tspan
+           style="font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';stroke:none;stroke-width:0.5"
+           id="tspan3">ω</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#000000;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="113.60839"
+       y="13.814503"
+       id="text29"><tspan
+         sodipodi:role="line"
+         id="tspan29"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;stroke:none;stroke-width:0.5"
+         x="113.60839"
+         y="13.814503">Real</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="174.86195"
+       y="28.508221"
+       id="text31"><tspan
+         sodipodi:role="line"
+         id="tspan31"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="174.86195"
+         y="28.508221">F{x(t)}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#0400ff;fill-opacity:1;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="117.14285"
+       y="33.948349"
+       id="text33"><tspan
+         sodipodi:role="line"
+         id="tspan33"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#0400ff;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+         x="117.14285"
+         y="33.948349">F{cos(ω<tspan
+   style="font-size:65%;direction:ltr;baseline-shift:sub;fill:#0400ff;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="tspan32">0</tspan>t)}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="156.43556"
+       y="62.661835"
+       id="text37"><tspan
+         sodipodi:role="line"
+         id="tspan37"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="156.43556"
+         y="62.661835">ω<tspan
+   style="font-size:65%;direction:ltr;baseline-shift:sub;stroke:none"
+   id="tspan36">0</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;text-orientation:upright;fill:#000000;fill-opacity:1;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="47.855541"
+       y="61.461601"
+       id="text41"><tspan
+         sodipodi:role="line"
+         id="tspan41"
+         style="direction:ltr;stroke:none;stroke-width:0.5"
+         x="47.855541"
+         y="61.461601">-ω<tspan
+   style="font-size:65%;baseline-shift:sub;stroke:none"
+   id="tspan42">0</tspan></tspan></text>
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 107,52.999998 80.927714,79.07229"
+       id="path50"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#000000;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="85.626999"
+       y="88.063164"
+       id="text50"><tspan
+         sodipodi:role="line"
+         id="tspan50"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;stroke:none;stroke-width:0.5"
+         x="85.626999"
+         y="88.063164">Imag</tspan></text>
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:0.499999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 158.17678,56.823221 172.31891,42.681092"
+       id="path51" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:0.5;stroke-dasharray:1.5, 0.5;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 51.887717,53.216471 37.745587,67.3586"
+       id="path52" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#0400ff;fill-opacity:1;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="19.803341"
+       y="76.563538"
+       id="text54"><tspan
+         sodipodi:role="line"
+         id="tspan54"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#ff000e;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+         x="19.803341"
+         y="76.563538">F{sin(ω<tspan
+   style="font-size:65%;direction:ltr;baseline-shift:sub;fill:#ff000e;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="tspan53">0</tspan>t)}</tspan></text>
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 50,147 V 110.12821"
+       id="path54"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 15.000002,145 H 85"
+       id="path55"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:0.999998, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 70,145 c -1.06993,-2.26618 -1.4216,-5.25398 -5,-5 H 50 c -9.597318,-0.008 -6.767988,-6.61288 -9.999998,-10 -3,-1 -1,-7 -2.6385,-10.5625 C 37.000002,115 36.000002,135 35.000002,140 c -7.77625,2.1985 -8.16379,-0.55063 -10,0 -4.81069,0.44581 -4,3 -4.80183,4.95221 l -0.19817,0.0478"
+       id="path57"
+       sodipodi:nodetypes="ccccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#000000;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="6.0274405"
+       y="103.69893"
+       id="text62"><tspan
+         sodipodi:role="line"
+         id="tspan62"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;stroke:none;stroke-width:0.5"
+         x="6.0274405"
+         y="103.69893">I(jω) = F{x(t)} ⨂ F{cos(ω<tspan
+   style="font-size:5.64444px;letter-spacing:0px;baseline-shift:sub"
+   id="tspan73">0</tspan>t)}</tspan></text>
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 52,143 25.927716,169.07229"
+       id="path69"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       d="m 30.000002,145.00001 c 1.06993,-2.26619 1.4216,-5.25398 5,-5.00001 H 50 c 9.59732,-0.008 6.76799,-6.61288 10,-10 3,-0.99999 1,-6.99999 2.6385,-10.56249 C 63,115.00001 64,135.00001 65,140 c 7.77625,2.19851 8.16379,-0.55063 10,0 4.81069,0.44582 4,3.00001 4.80183,4.95222 L 80,145.00002"
+       id="path72"
+       sodipodi:nodetypes="ccccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;direction:ltr;text-orientation:upright;fill:#ff000e;fill-opacity:1;stroke:#ff0003;stroke-width:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       x="68.221893"
+       y="177.29707"
+       id="text72"><tspan
+         sodipodi:role="line"
+         id="tspan72"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Arial;-inkscape-font-specification:Arial;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-opacity:1"
+         x="68.221893"
+         y="177.29707">another image out around +/- 2ω<tspan
+   style="font-size:5.64444px;baseline-shift:sub"
+   id="tspan74">0</tspan></tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#ArrowWide);paint-order:markers fill stroke"
+       d="M 66.805417,175.00999 H 51.805419"
+       id="path74" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#ArrowWide);paint-order:markers fill stroke"
+       d="m 156.83865,175.84131 h 15"
+       id="path75" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 155.1688,146.78948 V 109.91769"
+       id="path76"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="m 115.19769,145 h 79.60463"
+       id="path77"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.350128;stroke-dasharray:0.700256, 0.350128;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 174.82282,144.82571 c 1.20271,-1.10529 3.85306,-2.56252 1e-5,-2.43865 h -15.08091 c -9.64105,-0.004 -0.15596,-3.2253 -1e-5,-4.87729 -2.01079,-0.48773 6.03237,-3.41411 7.96675,-5.15165 4.09799,-2.1643 -17.01529,7.59029 -23.04765,10.02894 -10.02856,1.07227 -7.65423,-0.26856 -10.05394,0 -5.28486,0.21743 -7.03776,1.46319 -9.80666,2.41534 l -0.24729,0.0233"
+       id="path78"
+       sodipodi:nodetypes="ccccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#000000;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="111.14243"
+       y="103.42334"
+       id="text80"><tspan
+         sodipodi:role="line"
+         id="tspan80"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;stroke:none;stroke-width:0.5"
+         x="111.14243"
+         y="103.42334">Q(jω) = F{x(t)} ⨂ F{sin(ω<tspan
+   style="font-size:5.64444px;letter-spacing:0px;baseline-shift:sub"
+   id="tspan79">0</tspan>t)}</tspan></text>
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="m 157.1688,142.78948 -26.07228,26.07229"
+       id="path80"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.386115;stroke-dasharray:none;stroke-opacity:1"
+       d="M 135.00001,145.05079 C 133.79057,146.38748 131.12539,148.1498 135,148 h 15.16534 c 9.69503,0.005 0.15682,3.90054 0,5.8984 2.02206,0.58983 -6.06613,4.12887 -8.01134,6.23018 -4.12093,2.61741 17.11056,-9.17939 23.17669,-12.12858 10.08472,-1.29677 7.69708,0.32478 10.11023,0 5.31446,-0.26297 7.07718,-1.76953 9.86158,-2.92102 l 0.24868,-0.0282"
+       id="path81"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 150,251.99999 V 215.1282"
+       id="path83"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="m 115,249.99999 h 70"
+       id="path84"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#000000;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="151.25"
+       y="212.0032"
+       id="text87"><tspan
+         sodipodi:role="line"
+         id="tspan87"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;stroke:none;stroke-width:0.5"
+         x="151.25"
+         y="212.0032">jQ(jω)</tspan></text>
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="m 152,247.99999 -26.07228,26.07229"
+       id="path87"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:0.999998, 0.499999;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 170,249.99999 c -1.06993,-2.26618 -1.4216,-5.25398 -5,-5 h -15 c -9.59731,-0.008 -6.76798,-6.61288 -9.99999,-10 -3,-1 -1,-7 -2.6385,-10.5625 -0.3615,-4.4375 -1.3615,15.5625 -2.3615,20.5625 -7.77625,2.1985 -8.16379,-0.55063 -10,0 -4.81069,0.44581 -4,3 -4.80183,4.95221 L 120.00001,250"
+       id="path88"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       d="m 130.00002,249.99998 c 1.06993,2.26619 1.4216,5.25398 5,5.00001 H 150 c 9.59732,0.008 6.76799,6.61288 10,10 3,0.99999 1,6.99999 2.6385,10.56249 C 163,279.99998 164,259.99998 165,254.99999 c 7.77625,-2.19851 8.16379,0.55063 10,0 4.81069,-0.44582 4,-3.00001 4.80183,-4.95222 L 180,249.99997"
+       id="path89"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 55.000002,266.99999 V 230.1282"
+       id="path90"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 20.000007,264.99999 H 90.000002"
+       id="path91"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#020000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#DartArrow)"
+       d="M 57.000002,262.99999 30.927721,289.07228"
+       id="path93"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       d="m 35.000007,265 c 1.06993,-2.26619 1.4216,-5.25398 5,-5.00001 h 14.999995 c 9.59732,-0.008 6.76799,-6.61288 10,-10 3,-0.99999 1,-6.99999 2.6385,-10.56249 0.3615,-4.4375 1.3615,15.5625 2.3615,20.56249 7.77625,2.19851 8.16379,-0.55063 10,0 4.81069,0.44582 4,3.00001 4.80183,4.95222 l 0.19817,0.0478"
+       id="path94"
+       sodipodi:nodetypes="ccccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:5.64444px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#000000;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="39.68956"
+       y="223.74693"
+       id="text94"><tspan
+         sodipodi:role="line"
+         id="tspan94"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;stroke:none;stroke-width:0.5"
+         x="39.68956"
+         y="223.74693">I(jω)-jQ(jω)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       d="M -3.0000095,-26 H 11.99999"
+       id="path8"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g22"
+       transform="translate(-43.00001,-1.000001)">
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         id="path9"
+         cx="85"
+         cy="-57.5"
+         r="7.5" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         d="m 82.000001,-60.499999 5.999998,5.999998"
+         id="path13" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         d="m 87.999999,-60.499999 -5.999998,5.999998"
+         id="path14" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#0400ff;fill-opacity:1;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="45.999989"
+       y="-48"
+       id="text16"><tspan
+         sodipodi:role="line"
+         id="tspan16"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#0400ff;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+         x="45.999989"
+         y="-48">cos(ω<tspan
+   style="font-size:65%;direction:ltr;baseline-shift:sub;fill:#0400ff;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="tspan15">0</tspan>t)</tspan></text>
+    <g
+       id="g38"
+       transform="translate(109.99999,4.3307299)">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         id="rect16"
+         width="16"
+         height="9.6692686"
+         x="77"
+         y="-30" />
+      <text
+         xml:space="preserve"
+         style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#0400ff;fill-opacity:1;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+         x="79.88372"
+         y="-22.431778"
+         id="text18"><tspan
+           sodipodi:role="line"
+           id="tspan18"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+           x="79.88372"
+           y="-22.431778">90°</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="M 78.78512,-38.000001 H 41.999991 v -12.999997"
+       id="path18"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 41.999991,-38.000001 v 7.000002"
+       id="path19" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="M 41.999992,-21.500002 V -14.5"
+       id="path21" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#0400ff;fill-opacity:1;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="45.999989"
+       y="-15.000001"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan22"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#ff000e;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+         x="45.999989"
+         y="-15.000001">sin(ω<tspan
+   style="font-size:65%;direction:ltr;baseline-shift:sub;fill:#ff000e;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="tspan21">0</tspan>t)</tspan></text>
+    <g
+       id="g23"
+       transform="translate(-43.000008,50.5)">
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         id="circle22"
+         cx="85"
+         cy="-57.5"
+         r="7.5" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         d="m 82.000001,-60.499999 5.999998,5.999998"
+         id="path22" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         d="m 87.999999,-60.499999 -5.999998,5.999998"
+         id="path23" />
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker20);marker-end:url(#marker20)"
+       d="M 33.999991,-58.999998 H 11.99999 V -26 l 10e-7,18.9999992 h 22.000001"
+       id="path24" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="-3.0000105"
+       y="-28.000002"
+       id="text24"><tspan
+         sodipodi:role="line"
+         id="tspan24"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="-3.0000105"
+         y="-28.000002">x(t)</tspan></text>
+    <g
+       id="g26"
+       transform="translate(-43.00001,-1.000001)">
+      <circle
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         id="circle24"
+         cx="129.28513"
+         cy="-37"
+         r="7.5" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         d="m 123,-37 c 1.65101,-1.366154 3.04847,-3.724795 6,0 2.08459,2.842461 4.07398,2.485901 6,0"
+         id="path26"
+         sodipodi:nodetypes="ccc" />
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       d="m 141.99999,-58.999999 5,-4.999998 h 15 v 9.999998 h -15 z"
+       id="path27" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       d="m 141.99999,-6.0000009 5,-4.9999981 h 15 v 9.9999983 h -15 z"
+       id="path28" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 49.999991,-58.999998 51.999999,-1e-6"
+       id="path29"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="M 48.999993,-6.0000009 H 101.99999"
+       id="path30"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="51.999989"
+       y="-62"
+       id="text30"><tspan
+         sodipodi:role="line"
+         id="tspan30"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="51.999989"
+         y="-62">x(t)cos(ω<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan34">0</tspan>t)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="51.915325"
+       y="0.52468127"
+       id="text38"><tspan
+         sodipodi:role="line"
+         id="tspan38"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="51.915325"
+         y="0.52468127">x(t)sin(ω<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan35">0</tspan>t)</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 161.99999,-58.999998 h 33 V -49"
+       id="path38"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 161.99999,-6.0000007 h 33 V -16"
+       id="path39" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       id="circle39"
+       cx="194.99998"
+       cy="-41"
+       r="7.5" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+       d="m 192.02217,-41.000001 h 5.99285"
+       id="path40"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 194.99999,-25.499999 v -7.000002"
+       id="path42" />
+    <g
+       id="g43"
+       transform="translate(-43.000009,-0.66927)">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+         id="rect42"
+         width="16"
+         height="9.6692686"
+         x="77"
+         y="-30" />
+      <text
+         xml:space="preserve"
+         style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:#0400ff;fill-opacity:1;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+         x="79.88372"
+         y="-22.431778"
+         id="text43"><tspan
+           sodipodi:role="line"
+           id="tspan43"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+           x="79.88372"
+           y="-22.431778">90°</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="166.99998"
+       y="-62"
+       id="text45"><tspan
+         sodipodi:role="line"
+         id="tspan45"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="166.99998"
+         y="-62">i[nT<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan46">0</tspan>]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="166.99998"
+       y="0.99999899"
+       id="text48"><tspan
+         sodipodi:role="line"
+         id="tspan48"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="166.99998"
+         y="0.99999899">q[nT<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan47">0</tspan>]</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 202.99999,-41 33.85566,-10e-7"
+       id="path48"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;font-family:'TeX Gyre Chorus';-inkscape-font-specification:'TeX Gyre Chorus';letter-spacing:0px;direction:rtl;text-orientation:upright;fill:none;stroke:#020000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+       x="206.15334"
+       y="-45.919888"
+       id="text51"><tspan
+         sodipodi:role="line"
+         id="tspan51"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;direction:ltr;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="206.15334"
+         y="-45.919888">(i-j*q)[nT<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan49">0</tspan>]</tspan></text>
+    <g
+       id="g1"
+       transform="translate(-107,-104)">
+      <g
+         id="g32"
+         transform="translate(-15.000008)">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           id="rect26"
+           width="20"
+           height="19.999998"
+           x="225"
+           y="35" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 227,39.999999 c 2.62762,-2.597122 5.2922,-2.735473 8,0 2.37016,2.046663 4.86552,3.229147 8,0 v 0"
+           id="path27-1"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 227.00001,44.999999 c 2.62762,-2.597122 5.2922,-2.735473 8,0 2.37016,2.046663 4.86552,3.229147 8,0 v 0"
+           id="path28-8"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 227.00001,49.999999 c 2.62762,-2.597122 5.2922,-2.735473 8,0 2.37016,2.046663 4.86552,3.229147 8,0 v 0"
+           id="path30-7"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 232,41 6,-2.000002"
+           id="path31" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 232.00001,51.000001 6,-2.000002"
+           id="path32" />
+      </g>
+    </g>
+    <g
+       id="g34"
+       transform="translate(-107,-51.000001)">
+      <g
+         id="g33"
+         transform="translate(-15.000008)">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           id="rect1"
+           width="20"
+           height="19.999998"
+           x="225"
+           y="35" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 227,39.999999 c 2.62762,-2.597122 5.2922,-2.735473 8,0 2.37016,2.046663 4.86552,3.229147 8,0 v 0"
+           id="path15"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 227.00001,44.999999 c 2.62762,-2.597122 5.2922,-2.735473 8,0 2.37016,2.046663 4.86552,3.229147 8,0 v 0"
+           id="path16"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 227.00001,49.999999 c 2.62762,-2.597122 5.2922,-2.735473 8,0 2.37016,2.046663 4.86552,3.229147 8,0 v 0"
+           id="path17"
+           sodipodi:nodetypes="cccc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 232,41 6,-2.000002"
+           id="path25" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-dasharray:none;stroke-opacity:1"
+           d="m 232.00001,51.000001 6,-2.000002"
+           id="path33" />
+      </g>
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 122.99999,-59.000001 18,2e-6"
+       id="path34"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+       d="m 122.99999,-6.0000009 h 18"
+       id="path35"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+       id="rect35"
+       width="261.92511"
+       height="372"
+       x="-10"
+       y="-75" />
+  </g>
+</svg>

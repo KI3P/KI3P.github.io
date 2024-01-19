@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>So how does a QSD work anyway? | Amateur Radio Homebrewing</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="So how does a QSD work anyway?" />
+<meta name="author" content="KO4THB" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://localhost:4000/2024/01/16/so_how_does_a_qsd_work_anyway.html" />
+<meta property="og:url" content="http://localhost:4000/2024/01/16/so_how_does_a_qsd_work_anyway.html" />
+<meta property="og:site_name" content="Amateur Radio Homebrewing" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-16T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="So how does a QSD work anyway?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"KO4THB"},"dateModified":"2024-01-16T00:00:00-05:00","datePublished":"2024-01-16T00:00:00-05:00","description":"Introduction","headline":"So how does a QSD work anyway?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/01/16/so_how_does_a_qsd_work_anyway.html"},"url":"http://localhost:4000/2024/01/16/so_how_does_a_qsd_work_anyway.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</script>
+
+    
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+<!-- 
+ -->
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>So how does a QSD work anyway?</h1>
+        <p>A website devoted to homebrewing amateur radio equipment by KO4THB</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+	<a href="/"><strong>Home</strong></a>
+
+	
+          <a href="/2024/01/17/so_how_does_a_qsd_work_anyway.html"><strong>   |   So how does a QSD work anyway?</strong></a>
+        
+          <a href="/2024/01/16/so_how_does_a_qsd_work_anyway.html"><strong>   |   So how does a QSD work anyway?</strong></a>
+        
+          <a href="/2023/12/23/vswr_and_power_meter.html"><strong>   |   VSWR and Power Meter</strong></a>
+        
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="introduction">Introduction</h1>
+
+<p>A quadrature sampling detector is a common way of selecting and digitizing a portion of the electromagnetic spectrum. This post walks through the math to explain how it works, and then analyzes in detail an implementation commonly found in amateur radio equipment. We start by discussing the design of a simple mixer, which motivates the need for quadrature mixing in a quadrature sampling detector.</p>
+
+<h1 id="background-a-basic-mixer">Background: a basic mixer</h1>
+
+<p>In this section I walk through describing a simple mixer. It’s helpful to start with a simpler example when introducing the terminology and conventions I’ll be using.</p>
+
+<p><img src="/assets/images/simple_mixer_graphics-Block-diagram-no-filter.png" alt="Simple mixer with no input filter" /></p>
+
+<p>Consider a multiplier, shown above. An input voltage \(x(t)\) is multiplied (never mind how for now) with a sinusoidal voltage called a local oscillator at some frequency \(\omega_0\). The output voltage from the multiplier is then \(x(t)\cos(\omega_0 t)\).</p>
+
+<p><img src="/assets/images/simple_mixer_graphics_signals_in_time_and_frequency_domain.png" alt="Signals in the time and frequency domain" /></p>
+
+<p>The plots above show what these signals look like in the time and frequency domains. In the time domain, I’ve shown \(x(t)\) as some arbitrary noisy signal. \(\cos(\omega_0 t)\) is a sinusoid. It’s very useful to look at the frequency domain representation of the signals as well. In this case, the cosine wave is simple: single tones at the frequencies \(+\omega_0\) and \(-\omega_0\). The notation \(F\{a\}\) means the Fourier transform of \(a\). As shown by the shape of \(F\{ x(t) \}\), \(x(t)\) consists of contributions from a wide range of frequencies, with a peak just above \(\omega_0\) which is our signal of interest in this example – the band we’re interested in. I’ve shown the positive frequency components of each signal with solid lines and the negative frequency components with dashed lines – this is useful later.</p>
+
+<p>What does the output of the mixer look like in the frequency domain? That’s shown by the plot below. Remember that multiplication in the time domain is equivalent to convolution in the frequency domain, and convolving a signal with an impulse has the effect of shifting it in frequency.</p>
+
+<p><img src="/assets/images/simple_mixer_graphics-no_filter_spectral_output.png" alt="Output of mixer that has no input filter" /></p>
+
+<p>Can you spot the problem? The signal we’re looking for (the little bump in the spectrum) now overlaps with part of the negative frequency image. This is no good. At best it adds unwanted noise to our measurement. At worst there may be strong signals at the negative frequency which will overwhelm our band.</p>
+
+<p>The solution is to filter \(x(t)\) before we multiply it with the local oscillator, as shown below. Here \(h(t)\) represents the action of the filter on \(x(t)\), and the signal that is mixed is the convolution of the two: \(x(t) \bigotimes h(t)\).</p>
+
+<p><img src="/assets/images/simple_mixer_graphics-Block_diagram_with_filter.png" alt="Simple mixer with an input filter" /></p>
+
+<p>The output of the mixer is now shown below. Much nicer! No overlap between positive and negative frequency images, and ready for onward manipulation and digitization. Remember that \(F\{(x(t) \bigotimes h(t)) \times \cos(\omega_0 t) \} = F\{(x(t) \bigotimes h(t)) \} \bigotimes F\{ \cos(\omega_0 t) \}\).</p>
+
+<p><img src="/assets/images/simple_mixer_graphics-with_filter_spectral_output.png" alt="Output of mixer that has an input filter" /></p>
+
+<p>To digitize this signal we need a single ADC running at a sample rate of at least \(2\omega_m\), where \(\omega_m\) is the maximum frequency present in the signal.</p>
+
+<p>That’s all well and good, but there are two principle shortcomings of this mixer:</p>
+
+<ol>
+  <li>You need a (comparatively) fast ADC and digital logic.</li>
+  <li>It only works at one LO frequency! If you change the frequency of the LO \(\omega_0\), you also need to change the filter. Since tunable filters are hard / expensive / don’t work as well, this effectively means that you need a separate LO + mixer + filter for every band you want to sample.</li>
+</ol>
+
+<h1 id="solution-the-quadrature-mixer">Solution: the quadrature mixer</h1>
+
+<p>A quadrature mixer (the RF part of the quadrature sampling detector) solves the problems of the simple mixer at the expense of a more complicated mixing stage. The block diagram view of a quadrature sampling detector is shown in this figure. I’ve added the digitization step and some of the digital signal processing steps.</p>
+
+<p><img src="/assets/images/quadrature_mixer_and_sampler_block_diagram.png" alt="Quadrature sampling detector" /></p>
+
+<p>The input signal \(x(t)\) is split and multiplied (i.e., mixed) with a local oscillator (LO) at frequency \(\omega_0\), with one part of the split being multiplied directly and the other with a \(90^\circ\) phase shift first applied to the LO signal. These two signals, \(i(t) = x(t) \cos(\omega_0 t)\) and \(q(t) = x(t) \sin(\omega_0 t)\), are then filtered by anti-aliasing filters before being digitized to form digital signal streams \(i[nT_0]\) and \(q[nT_0]\) respectively (\(T_0 =  \frac{2\pi}{\omega_0}\)). These quadrature streams are combined with another phase shift and a difference to form the output stream \(i[nT_0] - j q[nT_0]\), where \(j = \sqrt{ -1}\). This output stream is made up only of the positive frequency spectral component of \(x(t)\), which solves the overlap problem we encountered above. How? (But first note how the quadrature mixer only has a fixed anti-aliasing filter <em>after</em> the mixer, not before. We can change the LO frequency without needing new filters. Problem solved!)</p>
+
+<p>First, let’s take a look at the spectral representation of the input signals to the multipliers. \(F\{ a \}\) indicates the Fourier transform of \(a\). I’ve added the imaginary axis – signals are represented by complex numbers in the frequency domain.</p>
+
+<p><img src="/assets/images/QSD_inputs_spectra.png" alt="Spectral view of inputs" /></p>
+
+<p>The input signal \(x(t)\) covers some band that spans either side of the LO frequency \(\omega_0\). The positive frequency component (or image) of each signal is represented by a solid line and the negative frequency by a dashed line. For simplicity, we’ve assumed that the imaginary component of \(F\{ x(t) \}\) is zero.</p>
+
+<p>After the output of the multipliers, the signals \(i(t)\) and \(q(t)\) have the following spectra – remember that multiplying in the time domain is equivalent to convolving in the frequency domain. These figures omit the higher frequency images around \(\pm 2\omega_0\) for simplicity.</p>
+
+<p><img src="/assets/images/QSD_mixer_outputs_spectra.png" alt="Outputs of mixer" /></p>
+
+<p>These signals are filtered by anti-aliasing filtered and digitized to form digital signal streams. Multiplying the digital stream \(q[nT_0]\) by \(j\) has the effect of rotating it by \(90^\circ\) in the complex plane. The positive and negative frequency components now have opposite signs, and therefore adding or subtracting \(i[nT_0]\) and \(jq[nT_0]\) has the effect of returning the negative or positive frequency components of \(x(t)\) respectively, as shown in the figure below.</p>
+
+<p><img src="/assets/images/QSD_output_spectra.png" alt="Output spectra" /></p>
+
+<p>Put another way, both \(i[nT_0]\) and \(jq[nT_0]\) <em>individually</em> suffer from the same overlapping-negative-frequency problem that the simple mixer had, but with a phase difference between the positive and negative frequency components. This allows us to remove the negative frequency image by subtracting one from the other. Neat!</p>
+
+<h1 id="how-do-i-actually-build-one">How do I actually build one?</h1>
+
+<p>To make a quadrature mixer we need electrical circuits to do two things:</p>
+
+<ol>
+  <li>To generate an LO signal and phase shift it by \(90^\circ\).</li>
+  <li>To multiply our signal \(x(t)\) with the LO signals.</li>
+</ol>
+
+<p>A very popular way of generating the LO signal at HF frequencies is to use the Si5351A (and equivalent) programmable clock generator. This device is can generate any frequency up to 160 MHz on any of its outputs with 0 ppm error. It can be programmed via an I2C interface to simultaneously generate square wave signals separated by \(90^\circ\) in phase, as shown below.</p>
+
+<p><img src="/assets/images/Si5351A_functional_block_diagram.png" alt="Output spectra" /></p>
+
+<p>A square wave is not sinusoidal, that’s true, but the rest of the system design can eliminate the impact of this.</p>
+
+<p>So what is the rest of the circuit? The remaining part of the quadrature mixer that we need to implement looks like this.</p>
+
+<p><img src="/assets/images/multiplexer_equivalent_circuit.png" alt="Multiplexer equivalent circuit" /></p>
+
+<p>A popular of implementing this is with a multiplexer/demultiplexer and some op-amps, as shown in this diagram.</p>
+
+<p><img src="/assets/images/multiplexer_QSD_walkthrough.png" alt="Multiplexer walkthrough" /></p>
+
+<p>The LO outputs are fed into the select inputs S0 and S1 of the multiplexer chip, while the input signal \(x(t)\) is connected to both channel common points 1A and 2A. The switch control logic uses a combination of the LO signals and their inverses to route \(x(t)\) to two different I/O channels during each quarter of an LO clock cycle. Using the LO-derived digital signals to turn \(x(t)\) on or off has the effect of <em>multiplying</em> \(x(t)\) by the LO clock, which is the second thing we needed in the list that started this section.</p>
+
+<p>Op-amps connected to the I/O channels produce the difference in voltage between particular channels. These channels are selected to result in combinations that multiply \(x(t)\) with signals that look even more sinusoidal, \(d(t)-a(t) \approx \cos(\omega_0 t) + \text{higher order terms}\) and \(c(t)-b(t) \approx \sin(\omega_0 t) + \text{higher order terms}\). What are these higher order terms? While it is possible to use Fourier analysis to work out their precise amplitudes, all we need to know for our purposes is that they will be at every harmonic of \(\omega_0\), generally getting weaker at higher harmonics. Put mathematically:</p>
+
+\[d(t)-a(t) = a_0 \cos(\omega_0 t) + a_1 \cos(2\omega_0 t) + a_2 \cos(3\omega_0 t) + ...\]
+
+<p>We will need to use filtering to remove these higher-order terms. Let’s walk through the signals in the time and frequency domain to satisfy ourselves that it works.</p>
+
+<p>First, take a look at the rest of the circuit. The outputs of the op-amps are filtered by fixed-frequency anti-aliasing filters and then digitized.</p>
+
+<p><img src="/assets/images/multiplexer_QSD_rest_of_circuit.png" alt="Digitize the mixer outputs" /></p>
+
+<p>Now let’s look at the signals in the plot below. The signal \(x(t)\) is again shown as some arbitrary noisy wave containing a broad range of frequencies that span our actual band of interest, which is the little peak in the spectrum. I’ve included the first of undesirable higher order terms of the LO in the frequency domain plot. I’ve omitted \(F\{ c(t)-b(t) \}\) for simplicity in the drawing, but it’ll look like the example from the Quadrature Mixer section above.</p>
+
+<p><img src="/assets/images/multiplexer_QSD-output-signals.png" alt="QSD output signals" /></p>
+
+<p>The output of the mixer looks like the plot below. The \(x(t)\) signal is present in one of the two mixer outputs at any given time, and is multiplied by -1 when \(d-a\) or \(c-b\) are negative. In the Fourier domain we see the effect of the undesired higher-order terms of the LO frequency: there are additional images of the positive and negative frequencies repeated outward (theoretically) infinitely along frequency axis.</p>
+
+<p><img src="/assets/images/multiplexer_QSD-multiplied-signals.png" alt="Output signals multiplied" /></p>
+
+<p>Fortunately, the anti-aliasing filters remove these undesired higher-frequency signals. Shown in the plot below is the effect of filtering on the \((d-a)(t)x(t)\) signal. It neatly removes all the undesired signals leaving a clean signal ready for digitization at some sample rate \(\omega_s\). The \((c-b)(t)x(t)\) signal will look similar, except with a phase shift between the positive and negative frequency images as in the quadrature mixer discussion above.</p>
+
+<p><img src="/assets/images/multiplexer_QSD-filtered-signals.png" alt="Output signals filtered" /></p>
+
+<p>And that’s how a QSD works.</p>
+
+<h1 id="a-real-schematic">A real schematic</h1>
+
+<p>Here’s a real QSD schematic, derived from the excellent <a href="https://github.com/DRWJSCHMIDT/T41">T41 software-defined transceiver</a>. A pdf version can be downloaded <a href="/assets/images/QSD_multiplexer_schematic.pdf">here</a>.</p>
+
+<p><img src="/assets/images/QSD_multiplexer_schematic.png" alt="Schematic" /></p>
+
+<p>This implementation uses a cheap, high quality stereo audio digitizer PCM1808 to digitize the output. It reduces the signal bandwidth from the ~400 kHz produced by the anti-aliasing filters to 192 kHz. Remember that because we’re doing quadrature sampling we get a digital signal bandwidth that is twice the sample rate without violating the Nyquist limit. Think of it this way: in simple mixing you need to digitize one channel at twice the highest frequency, in quadrature sampling you digitize two channels at half the rate. Both methods produce the same amount of data to represent the same input signal bandwidth.</p>
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
