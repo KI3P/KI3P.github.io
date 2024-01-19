@@ -1,6 +1,6 @@
 ---
 layout: default
-author: KO4THB
+author: KI3P
 title: So how does a QSD work anyway?
 use_math: true
 ---
@@ -31,7 +31,7 @@ The solution is to filter $$ x(t) $$ before we multiply it with the local oscill
 
 ![Simple mixer with an input filter](/assets/images/simple_mixer_graphics-Block_diagram_with_filter.png)
 
-The output of the mixer is now shown below. Much nicer! No overlap between positive and negative frequency images, and ready for onward manipulation and digitization. Remember that $$ F\{(x(t) \bigotimes h(t)) \times \cos(\omega_0 t) \} = F\{(x(t) \bigotimes h(t)) \} \bigotimes F\{ \cos(\omega_0 t) \} $$.
+The output of the mixer is now shown below. Much nicer! No overlap between positive and negative frequency images, and ready for onward manipulation and digitization.
 
 ![Output of mixer that has an input filter](/assets/images/simple_mixer_graphics-with_filter_spectral_output.png)
 
