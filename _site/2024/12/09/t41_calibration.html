@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>T41 V12 Calibration | Amateur Radio Homebrewing</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="T41 V12 Calibration" />
+<meta name="author" content="KI3P" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What is the T41?" />
+<meta property="og:description" content="What is the T41?" />
+<link rel="canonical" href="http://localhost:4000/2024/12/09/t41_calibration.html" />
+<meta property="og:url" content="http://localhost:4000/2024/12/09/t41_calibration.html" />
+<meta property="og:site_name" content="Amateur Radio Homebrewing" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-12-09T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="T41 V12 Calibration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"KI3P"},"dateModified":"2024-12-09T00:00:00-05:00","datePublished":"2024-12-09T00:00:00-05:00","description":"What is the T41?","headline":"T41 V12 Calibration","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/12/09/t41_calibration.html"},"url":"http://localhost:4000/2024/12/09/t41_calibration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</script>
+
+    
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+<!-- 
+ -->
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>T41 V12 Calibration</h1>
+        <p>A website devoted to homebrewing amateur radio equipment by KI3P</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+	<a href="/"><strong>Home</strong></a>
+
+	
+          <a href="/2024/12/09/t41_calibration.html"><strong>   |   T41 V12 Calibration</strong></a>
+        
+          <a href="/2024/01/16/so_how_does_a_qsd_work_anyway.html"><strong>   |   So how does a QSD work anyway?</strong></a>
+        
+          <a href="/2023/12/23/vswr_and_power_meter.html"><strong>   |   VSWR and Power Meter</strong></a>
+        
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="what-is-the-t41">What is the T41?</h1>
+
+<p>The T41-EP Software Defined Transceiver (SDT), originally designed by Al Peter-AC8GY and Jack Purdum-W8TEE, is a 20W, HF, 7 band, CW/SSB Software Defined Transceiver (SDT) with a rich feature set. The T41-EP is a self-contain SDT that does not require an external PC, laptop, or tablet to use.</p>
+
+<p>The T41-EP is a fully open-source radio. The repository for the transceiver software is hosted on <a href="https://github.com/KI3P/SDTVer050.0/tree/main">GitHub</a>. The hardware designs are hosted on Bill-K9HZ’s <a href="https://github.com/DRWJSCHMIDT/T41/tree/main/T41_V012_Files_01-15-24">GitHub repository</a>. The primary forum for discussions on the T41-EP radio is on <a href="https://groups.io/g/SoftwareControlledHamRadio/topics">Groups.io</a>.</p>
+
+<p>This post is a detailed write-up of the error model and calibration approach for the T41 V12 radio.</p>
+
+<h1 id="rf-board-design">RF board design</h1>
+
+<p>A block diagram view of the T41’s V12 RF board is shown below. The receive chain is shown along the upper portion of the block diagram: the RF signal from the antenna enters through J2 and is amplified by U2 before being mixed by quadrature mixer U1 (see <a href="https://www.ki3p.me/2024/01/16/so_how_does_a_qsd_work_anyway.html">this post</a> for an explanation of the mixer). After gain and filtering stages, the I and Q intermediate frequency (IF) channels leave the RF board through J1 to a PCM1808 ADC on the main board where they are digitized. The rest of the signal processing happens in the DSP chain.</p>
+
+<p><img src="/assets/images/calibration/T41_calibration_model-RF-board.png" alt="T41 V12 RF board design" /></p>
+
+<p>The transmit chain is shown along the bottom. The I/Q signals to be transmitted are generated by the Teensy audio hat and enter the RF board through J5. They are amplified and phased by U6 and U8, mixed by U4, and leave the RF board through J6.</p>
+
+<p>A key feature of the T41 V12 RF board is that the transmit and receive chains share the same local oscillator: an Si5351 clock generator (U11) that produces quadrature outputs on CLK0 and CLK1.</p>
+
+<p>The RF board has two more features that help us calibrate the board:</p>
+
+<ol>
+  <li>The signal produced by the transmit chain can be routed to the receive chain by controlling RF switch U9. This allows the T41 to examine its own transmit signal.</li>
+  <li>The third clock output of the Si5351, CLK2, can be routed into the transmit signal path using U7, and then into the receive path using U9. This allows us to use the Si5351 as an internal signal generator to measure the performance of the receive circuit.</li>
+</ol>
+
+<h1 id="receive-chain-imperfections">Receive chain imperfections</h1>
+
+<p>Gain and phase differences between the I and Q signal paths in the T41 V12 receiver result in improper separation of the sidebands. To measure these differences we place the T41 RF board into the configuration shown below:</p>
+
+<p><img src="/assets/images/calibration/T41_calibration_model-Receive_IQ_measurement.png" alt="RF board configuration for receive error characterization" /></p>
+
+<ol>
+  <li>First, we set the CLK2 output of the Si5351 to be at some frequency \(x\) close to the LO frequency.</li>
+  <li>Route the CLK2 output into the receive chain using U7 and U9.</li>
+  <li>In the DSP chain, calculate FFTs of the L and R channels (I and Q respectively).</li>
+  <li>Find the CLK2 tone in the spectrum and measure its amplitude and phase in both the L and R (I and Q) channels.</li>
+  <li>Compute the ratio of the amplitude of the tone as seen in the L and R channels, and the phase difference between them.</li>
+</ol>
+
+<p>If the receiver were perfect, we would expect the amplitude ratio to be 1, i.e., the CLK2 tone has been received with equal amplitude in the I and Q channels. We expect the phase difference to be \(\pm 90^\circ\), depending on whether the tone is in the lower sideband (\(-90^\circ\)) or upper sideband (\(+90^\circ\)).</p>
+
+<p>By sweeping \(x\) across the band and measuring the ratios and differences at each point in the sweep, we find the phase and amplitude balance between the I and Q channels to be something like this:</p>
+
+<p><img src="/assets/images/calibration/IQ_balance_wide_20m.png" alt="" /></p>
+
+<p>The T41 code contains a routine for performing this measurement called “IQ Balance” under the “Calibrate” menu.</p>
+
+<p>Over most of the IF band, the phase balance is close to the ideal values. The amplitude balance is worse for the board under test: it deviates substantially from 1 over almost the entire IF band.</p>
+
+<p>How does the IQ balance vary with LO frequency? It remains the same within a band, as shown by these measurements taken at three frequencies 14.0 MHz, 14.1 MHz, and 14.2 MHz in the 20m band.</p>
+
+<p><img src="/assets/images/calibration/IQ_balance_narrow_20m.png" alt="" /></p>
+
+<p>But it varies between bands, as shown by these measurements taken in the 20m (14.1 MHz), 40m (7.1 MHz), and 12m (24.9 MHz) bands:</p>
+
+<p><img src="/assets/images/calibration/IQ_balance_narrow_compare-bands.png" alt="" /></p>
+
+<h2 id="receive-error-model">Receive error model</h2>
+
+<p>We characterize the imperfections in the receive chain using two parameters, \(g(\omega_{IF})\) and \(\phi(\omega_{IF})\), that vary with the IF frequency \(\omega_{IF} = 2\pi(f_{\rm tone}-f_{\rm LO})\). \(f_{\rm tone}\) is the frequency generated by the CLK2 output of the Si5351 while \(f_{\rm LO}\) is the LO frequency generated by the CLK0 and CLK1 outputs.</p>
+
+<p>The signals seen at frequency \(\omega_{IF}\) on the I and Q channels are given by:</p>
+
+\[I(\omega_{IF}) = g(\omega_{IF}) A_t \cos(\omega_{IF}t + \pi/2) + g(-\omega_{IF}) A_i \cos(-\omega_{IF}t - \pi/2)\]
+
+\[Q(\omega_{IF}) = A_t \cos\big(\omega_{IF}t + \phi(\omega_{IF})\big) + A_i \cos\big(-\omega_{IF}t +  \phi(-\omega_{IF})\big)\]
+
+<p>In the case of an ideal receiver, \(g=1\) and \(\phi=0\), so our I and Q outputs are:</p>
+
+\[I(\omega_{IF}) = A_t \cos(\omega_{IF}t + \pi/2) + A_i \cos(-\omega_{IF}t - \pi/2)\]
+
+\[Q(\omega_{IF}) = A_t \cos(\omega_{IF}t ) + A_i \cos(-\omega_{IF}t)\]
+
+<p>Here \(A_i\) is the amplitude of the signal at the image frequency, while \(A_t\) is the amplitude of the signal at the tone frequency \(f_{\rm tone}\). In the DSP chain we make a complex number from the I and Q values that is then used through all the subsequent processing steps:</p>
+
+\[-I + jQ = 2 A_t \cos(\omega_{IF}t)\]
+
+<p>So we see that in a perfect receiver the signals from the image frequency \(-\omega_{IF}\) are perfectly canceled when we form the complex number \(-I + jQ\) and don’t appear in the output. This is perfect sideband separation.</p>
+
+<p>To compensate for the errors in an imperfect receiver, we could multiply \(I(\omega_{IF})\) by \(1/g(\omega_{IF})\) to remove the gain imbalance, and apply a phase shift to \(Q(\omega_{IF})\) to remove the phase imbalance. How do we actually go about doing this?</p>
+
+<h2 id="most-correct-calibration-method">Most correct calibration method</h2>
+
+<p>\(g\) and \(\phi\) vary with frequency, so the most correct way to apply the calibration is to do so in the frequency domain. In this method, we transform the time samples into the frequency domain and apply a different gain correction and phase rotation to every bin in the frequency domain, as shown by this code snippet:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="c1"># L and R are numpy arrays of floats containing the time samples 
+# from the left and right channels respectively. correctionG and
+# correctionP are the pre-calculated gain correction and phase
+# shift correction
+</span>
+<span class="c1"># Transform L and R to the frequency domain
+</span><span class="n">FL</span> <span class="o">=</span>  <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="nf">fft</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="n">FR</span> <span class="o">=</span>  <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="nf">fft</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">FL</span><span class="p">)):</span>
+    <span class="c1"># Apply the gain correction
+</span>    <span class="n">FL</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">FL</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">correctionG</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="c1"># Apply the phase rotation
+</span>    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">real</span><span class="p">(</span><span class="n">FR</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">imag</span><span class="p">(</span><span class="n">FR</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="n">correctionP</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">ri</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">sin</span><span class="p">(</span><span class="n">correctionP</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">FR</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">rr</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">ri</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1j</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">rr</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">ri</span><span class="p">)</span>
+<span class="c1"># Transform L and R back to the time domain
+</span><span class="n">Lc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="nf">ifft</span><span class="p">(</span><span class="n">FL</span><span class="p">)</span>
+<span class="n">Rc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="nf">ifft</span><span class="p">(</span><span class="n">FR</span><span class="p">)</span>
+<span class="c1">#  Lc and Rc are complex numbers, do some complex math. Numpy has a 
+# complex data type that would make this simpler, but being explicit
+# so it's easier to port this code to C.
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">real</span><span class="p">(</span><span class="n">Lc</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">imag</span><span class="p">(</span><span class="n">Lc</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">real</span><span class="p">(</span><span class="n">Rc</span><span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">imag</span><span class="p">(</span><span class="n">Rc</span><span class="p">)</span>
+<span class="n">IQc</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1j</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The efficacy of this technique when applied to simulated data is shown in the plot below. Without the calibration corrections, the tone at +10 kHz leaks into its image frequency frequency -10 kHz. If we apply the corrections, the sideband leakage is entirely eliminated.</p>
+
+<p><img src="/assets/images/calibration/IQ_correction_example.png" alt="" /></p>
+
+<p>However, this method is computationally expensive and memory intensive. We need to perform four additional FFTs on every block of data: two FFTs to transform to the frequency domain and two more to transform back to the time domain. We also need to store two 32-bit float values in memory for every frequency bin and allocate enough RAM for the outputs of the FFTs. In the T41 we typically act on blocks of 2048 samples, so the correction values need 16,384 bytes of RAM and the FFTs need 32,768 bytes (assuming we perform the FFTs in-place: 2 FFTs x 4 bytes x 2 numbers (real+complex) x 2048 samples).</p>
+
+<h2 id="most-efficient-method">Most efficient method</h2>
+
+<p>While the method above is the most correct and will perfectly calibration the data across the entire IF band, it is unnecessarily complicated. After all, we only demodulate a few kHz of bandwidth in the audio processing chain. This allows us to drastically simplify the calibration approach.</p>
+
+<p>The T41 audio processing chain demodulates the portion of the electromagnetic spectrum that is about 48 kHz below the LO frequency (see <code class="language-plaintext highlighter-rouge">FFTShift1</code> function in <a href="https://github.com/KI3P/SDTVer050.0/blob/main/Freq_Shift.cpp">Freq_Shift.cpp</a>).</p>
+
+<p>Let’s look at the gain and phase imbalances over a narrow bandwith 48 kHz above the IF frequency - this is the signal that we want to prevent from leaking into the demodulated audio in the signal processing chain. We see that the phase imbalances are almost constant over this band.</p>
+
+<p><img src="/assets/images/calibration/IQ_balance_48kHz.png" alt="" /></p>
+
+<p>So, because we restrict our demodulation signal processing to a narrow part of the IF band, we only need to store a single gain correction and a single phase correction value for the whole band.</p>
+
+<p>This simplification allows us to avoid the computational complexity too. We no longer need to perform the FFTs since we apply frequency-invariant amplitude and phase corrections. The T41 code applies an amplitude correction to the L buffer (the I channel):</p>
+
+<pre><code class="language-C">arm_scale_f32 (float_buffer_L, -IQAmpCorrectionFactor[currentBand], float_buffer_L, BUFFER_SIZE * N_BLOCKS);
+</code></pre>
+
+<p>And applies something that approximates a phase correction:</p>
+
+<pre><code class="language-C">void IQPhaseCorrection(float32_t *I_buffer, float32_t *Q_buffer, float32_t factor, uint32_t blocksize) {
+  float32_t temp_buffer[blocksize];
+  if (factor &lt; 0.0) {  // mix a bit of I into Q
+    arm_scale_f32(I_buffer, factor, temp_buffer, blocksize);
+    arm_add_f32(Q_buffer, temp_buffer, Q_buffer, blocksize);
+  } else {  // mix a bit of Q into I
+    arm_scale_f32(Q_buffer, factor, temp_buffer, blocksize);
+    arm_add_f32(I_buffer, temp_buffer, I_buffer, blocksize);
+  }
+}
+</code></pre>
+
+<h1 id="transmit-calibration-if-only-it-were-that-simple">Transmit calibration: If only it were that simple</h1>
+
+<p>A feature of the V12 hardware that makes it cheaper to build - its use of a single shared Si5351 between the transmit and receive channels - makes the transmit calibration procedure more complicated.</p>
+
+<p>During the transmit calibration procedure we want to correct for I/Q imbalances at audio frequencies in the transmit chain. We do this by generating a 750 Hz audio tone. Take a look at what happens when we do this:</p>
+
+<p><img src="/assets/images/calibration/T41-transmit-cal-transmit-portion.png" alt="" /></p>
+
+<p>The 750 Hz transmit audio tone ends up around the 0 Hz IF frequency where the performance of the receiver is at its worst. A detailed measurement of the IQ balance looks like this:</p>
+
+<p><img src="/assets/images/calibration/IQ_balance_super-narrow_20m.png" alt="" /></p>
+
+<p>The phase and amplitude imbalances are changing rapidly with frequency. In principle, the same simplified method we use in the receive calibration above should work. In practice, we find that this method cannot sufficiently reduce the receive errors, likely because power from the LO leaks into the output and mixes with the tone in later parts of the signal chain to produce additional “false” power at the image frequency.</p>
+
+<h1 id="receive-calibration-process">Receive Calibration Process</h1>
+
+<p>When in the receive calibration state, the front panel buttons are mapped as follows:</p>
+
+<p><img src="/assets/images/calibration/receive_cal_button_state.png" alt="" /></p>
+
+<p>Receive calibration steps:</p>
+
+<ol>
+  <li>Enter receive calibration state by selecting Menu -&gt; Calibrate -&gt; Rec Cal.</li>
+  <li>Press Autotune button to find the best sideband separation.</li>
+  <li>Once autotune completes, press Save button to save values to EEPROM.</li>
+</ol>
+
+<p>You can experiment with changes the values manually using the Filter encoder. Press the Gain/Phase button to switch between changing the amplitude correction and the phase correction and press the Increment button to change the increment value.</p>
+
+<p>If the receive signal level is too high, you can adjust the attenuation levels of the transmit and receive attenuators. Rotating the Fine Tune encoder will change the attenuation level; press the Toggle Attenuator button (15) to select which attenuator is changed by the encoder.</p>
+
+<p>You can examine the RF signal being produced by the Si5351 by pressing the J6/J2 button to toggle U9.</p>
+
+<h1 id="transmit-calibration-process">Transmit Calibration Process</h1>
+
+<p>The button mapping when in transmit calibration state is:</p>
+
+<p><img src="/assets/images/calibration/transmit_cal_button_state.png" alt="" /></p>
+
+<p>Currently, transmit calibration must be performed using an external spectrum analyzer.</p>
+
+<ol>
+  <li>Press the Xmit/Rec button to switch to Xmit calibrate.</li>
+  <li>Press the J6/J2 button to route the transmit signal to J6.</li>
+  <li>Place a spectrum analyzer on J6.</li>
+  <li>Manually tune the gain and phase to maximize sideband separation.</li>
+</ol>
+
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
