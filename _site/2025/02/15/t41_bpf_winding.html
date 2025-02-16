@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>T41 Bandpass Filter Winding | Amateur Radio Homebrewing</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="T41 Bandpass Filter Winding" />
+<meta name="author" content="KI3P" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Overview" />
+<meta property="og:description" content="Overview" />
+<link rel="canonical" href="http://localhost:4000/2025/02/15/t41_bpf_winding.html" />
+<meta property="og:url" content="http://localhost:4000/2025/02/15/t41_bpf_winding.html" />
+<meta property="og:site_name" content="Amateur Radio Homebrewing" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-02-15T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="T41 Bandpass Filter Winding" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"KI3P"},"dateModified":"2025-02-15T00:00:00-05:00","datePublished":"2025-02-15T00:00:00-05:00","description":"Overview","headline":"T41 Bandpass Filter Winding","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/02/15/t41_bpf_winding.html"},"url":"http://localhost:4000/2025/02/15/t41_bpf_winding.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</script>
+
+    
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+<!-- 
+ -->
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>T41 Bandpass Filter Winding</h1>
+        <p>A website devoted to homebrewing amateur radio equipment by KI3P</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+	<a href="/"><strong>Home</strong></a>
+
+	
+          <a href="/2025/02/15/t41_bpf_winding.html"><strong>   |   T41 Bandpass Filter Winding</strong></a>
+        
+          <a href="/2024/12/09/t41_calibration.html"><strong>   |   T41 V12 Calibration</strong></a>
+        
+          <a href="/2024/01/16/so_how_does_a_qsd_work_anyway.html"><strong>   |   So how does a QSD work anyway?</strong></a>
+        
+          <a href="/2023/12/23/vswr_and_power_meter.html"><strong>   |   VSWR and Power Meter</strong></a>
+        
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="overview">Overview</h1>
+
+<p>The T41 V12 radio has a <a href="https://github.com/DRWJSCHMIDT/T41/tree/main/T41_V012_Files/T41_V012_KiCad/T41-BPF-filter-board">bandpass filter board</a> with 9 different filter channels. Each channel has 5 inductors that need to be wound around a toroidal core to achieve the desired inductance. I carefully measured the inductance of each component and tweaked them by hand to get the nicest looking passband I could.</p>
+
+<p><img src="/assets/images/t41_bpf/T41_BPF_board.jpg" alt="" /></p>
+
+<h2 id="table">Table</h2>
+
+<p>The table below shows the number of windings N on each core for each inductor, the inductance I measured (see methods below), and the desired inductance from the <a href="https://tonnesoftware.com/elsie.html">Elsie</a> model.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Band</th>
+      <th>Inductors</th>
+      <th>Core</th>
+      <th>N</th>
+      <th>L measured</th>
+      <th>L goal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6m</td>
+      <td>L601,L605</td>
+      <td>Air</td>
+      <td>5</td>
+      <td>not measured</td>
+      <td>39 nH</td>
+    </tr>
+    <tr>
+      <td>6m</td>
+      <td>L602,L604</td>
+      <td>T37-10</td>
+      <td>16</td>
+      <td>730 nH</td>
+      <td>720 nH</td>
+    </tr>
+    <tr>
+      <td>6m</td>
+      <td>L603</td>
+      <td>Air</td>
+      <td>7</td>
+      <td>not measured</td>
+      <td>24 nH</td>
+    </tr>
+    <tr>
+      <td>12&amp;10m</td>
+      <td>L501,L505</td>
+      <td>T37-0</td>
+      <td>12</td>
+      <td>110 nH</td>
+      <td>120 nH</td>
+    </tr>
+    <tr>
+      <td>12&amp;10m</td>
+      <td>L502,L504</td>
+      <td>T37-10</td>
+      <td>17</td>
+      <td>750 nH</td>
+      <td>820 nH</td>
+    </tr>
+    <tr>
+      <td>12&amp;10m</td>
+      <td>L503</td>
+      <td>T37-0</td>
+      <td>10</td>
+      <td>85 nH</td>
+      <td>82 nH</td>
+    </tr>
+    <tr>
+      <td>17&amp;15m</td>
+      <td>L401,L405</td>
+      <td>T37-0</td>
+      <td>14</td>
+      <td>148 nH</td>
+      <td>150 nH</td>
+    </tr>
+    <tr>
+      <td>17&amp;15m</td>
+      <td>L402,L404</td>
+      <td>T37-10</td>
+      <td>21</td>
+      <td>1140 nH</td>
+      <td>1200 nH</td>
+    </tr>
+    <tr>
+      <td>17&amp;15m</td>
+      <td>L403</td>
+      <td>T37-0</td>
+      <td>10</td>
+      <td>85 nH</td>
+      <td>82 nH</td>
+    </tr>
+    <tr>
+      <td>20m</td>
+      <td>L301,L305</td>
+      <td>T37-0</td>
+      <td>17</td>
+      <td>198 nH</td>
+      <td>220 nH</td>
+    </tr>
+    <tr>
+      <td>20m</td>
+      <td>L302,L304</td>
+      <td>T37-6</td>
+      <td>25</td>
+      <td>1845 nH</td>
+      <td>2200 nH</td>
+    </tr>
+    <tr>
+      <td>20m</td>
+      <td>L303</td>
+      <td>T37-0</td>
+      <td>12</td>
+      <td>110 nH</td>
+      <td>120 nH</td>
+    </tr>
+    <tr>
+      <td>30m</td>
+      <td>L291,L295</td>
+      <td>T37-0</td>
+      <td>19</td>
+      <td>236 nH</td>
+      <td>245 nH</td>
+    </tr>
+    <tr>
+      <td>30m</td>
+      <td>L292,L294</td>
+      <td>T37-10</td>
+      <td>38</td>
+      <td>3639 nH</td>
+      <td>3600 nH</td>
+    </tr>
+    <tr>
+      <td>30m</td>
+      <td>L293</td>
+      <td>T37-0</td>
+      <td>13</td>
+      <td>127 nH</td>
+      <td>132 nH</td>
+    </tr>
+    <tr>
+      <td>40m</td>
+      <td>L201,L205</td>
+      <td>T37-0</td>
+      <td>32</td>
+      <td>558 nH</td>
+      <td>560 nH</td>
+    </tr>
+    <tr>
+      <td>40m</td>
+      <td>L202,L204</td>
+      <td>T37-1</td>
+      <td>22</td>
+      <td>3888 nH</td>
+      <td>3900 nH</td>
+    </tr>
+    <tr>
+      <td>40m</td>
+      <td>L203</td>
+      <td>T37-0</td>
+      <td>23</td>
+      <td>329 nH</td>
+      <td>330 nH</td>
+    </tr>
+    <tr>
+      <td>60m</td>
+      <td>L191,L195</td>
+      <td>T37-10</td>
+      <td>17</td>
+      <td>750 nH</td>
+      <td>840 nH</td>
+    </tr>
+    <tr>
+      <td>60m</td>
+      <td>L192,L194</td>
+      <td>T37-1</td>
+      <td>26</td>
+      <td>4985 nH</td>
+      <td>5200 nH</td>
+    </tr>
+    <tr>
+      <td>60m</td>
+      <td>L193</td>
+      <td>T37-2</td>
+      <td>9</td>
+      <td>394 nH</td>
+      <td>400 nH</td>
+    </tr>
+    <tr>
+      <td>80m</td>
+      <td>L101,L105</td>
+      <td>T37-10</td>
+      <td>20</td>
+      <td>1035 nH</td>
+      <td>1000 nH</td>
+    </tr>
+    <tr>
+      <td>80m</td>
+      <td>L102,L104</td>
+      <td>T37-1</td>
+      <td>27</td>
+      <td>5550 nH</td>
+      <td>5600 uH</td>
+    </tr>
+    <tr>
+      <td>80m</td>
+      <td>L103</td>
+      <td>T37-0</td>
+      <td>32</td>
+      <td>558 nH</td>
+      <td>560 nH</td>
+    </tr>
+    <tr>
+      <td>160m</td>
+      <td>L91,L95</td>
+      <td>T37-6</td>
+      <td>26</td>
+      <td>1974 nH</td>
+      <td>2000 nH</td>
+    </tr>
+    <tr>
+      <td>160m</td>
+      <td>L92,L94</td>
+      <td>FT37-61</td>
+      <td>15</td>
+      <td>10619 nH</td>
+      <td>11000 nH</td>
+    </tr>
+    <tr>
+      <td>160m</td>
+      <td>L93</td>
+      <td>T37-10</td>
+      <td>20</td>
+      <td>1035 nH</td>
+      <td>1000 nH</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="plots">Plots</h2>
+
+<p>The measured passband for each of the filter channels is plotted below.</p>
+
+<p><img src="/assets/images/t41_bpf/feb_20m_all_filters_separate_panes.png" alt="The measured filter passbands for each of the filter channels" /></p>
+
+<p>Here are zoomed-in plots that compare the measured transmission to the Elsie simulation and my prior attempt at winding the filters (V1) for each of the bands. The windings specified in the table above give very good performance that matches the Elsie simulations fairly well.</p>
+
+<p><img src="/assets/images/t41_bpf/feb_6m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_12_10m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_17_15m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_20m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_30m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_40m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_60m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_80m.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/feb_160m.png" alt="" /></p>
+
+<h1 id="methods">Methods</h1>
+
+<p>I measured the inductance of each toroid using one of two methods.</p>
+
+<h2 id="direct-measurement-with-a-vna">Direct measurement with a VNA</h2>
+
+<p>Use a ZIF socket soldered to a PCB to hold the inductor. Using SMA connectors, place the inductor in a series circuit as shown below.</p>
+
+<p><img src="/assets/images/t41_bpf/vna_direct.png" alt="" /></p>
+
+<p>I use the <a href="https://github.com/NanoVNA-Saver/nanovna-saver">NanoVNA-Saver software</a> and a NanoVNA to measure the inductance of the fixture and device under test (DUT). Note that the VNA must be calibrated. NanoVNA will calculate the equivalent series inductance for you.</p>
+
+<p><img src="/assets/images/t41_bpf/vna_direct_measurement.png" alt="" /></p>
+
+<p>You can also export the measured response as a Touchstone s2p file. I then use Python and the <a href="https://scikit-rf.readthedocs.io/en/latest/">scikit-rf library</a> to calculate the equivalent series inductance from the magnitude of the imaginary part of S[1,1]:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">skrf</span> <span class="k">as</span> <span class="n">rf</span>
+<span class="k">def</span> <span class="nf">calculate_L_nH</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+    <span class="nf">return </span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">s11</span><span class="p">.</span><span class="n">z_im</span><span class="p">.</span><span class="nf">flatten</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">rf</span><span class="p">.</span><span class="n">pi</span><span class="o">*</span><span class="n">S</span><span class="p">.</span><span class="n">f</span><span class="p">)</span><span class="o">*</span><span class="mf">1e9</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">rf</span><span class="p">.</span><span class="nc">Network</span><span class="p">(</span><span class="sh">'</span><span class="s">file.s2p</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">L_nH</span> <span class="o">=</span> <span class="nf">calculate_L_nH</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>It looks something like this:</p>
+
+<p><img src="/assets/images/t41_bpf/T37-0_N12_inductance_vs_freq.png" alt="" /></p>
+
+<p>It’s critical to note that this measurement includes the inductance of the test fixture! The fixture inductance needs to be subtracted to obtain the DUT inductance. I measure the test fixture inductance by placing a short conductor between the terminals of the ZIF socket; I measured it to be 30 nH.</p>
+
+<p>It’s also important to note that the ZIF socket has an equivalent series capacitance of roughly 4 pF (again measured using a NanoVNA). The resonance frequency between the ZIF socket capacitance and the inductor under test approaches HF frequencies for high inductance values, which gives false readings using this method. Based on testing, I’ve concluded that measuring inductor values above 2 uH is unreliable using the VNA method and this particular test fixture. For such inductors I use the resonance method.</p>
+
+<h2 id="resonance-method">Resonance method</h2>
+
+<p>In this method, place a capacitor in parallel with the inductor under test and measure the frequency of the minimum in the transmitted signal S21.</p>
+
+<p><img src="/assets/images/t41_bpf/vna_resonance.png" alt="" /></p>
+
+<p><img src="/assets/images/t41_bpf/vna_resonance_measurement.png" alt="" /></p>
+
+<p>This frequency is the resonance frequency of the tank circuit formed by the inductor under test and the reference capacitor. The exact capacitance of the reference capacitor can be found by measuring the equivalent series capacitance of the capacitor when placed in the ZIF socket using the NanoVNA software. It should be higher than the listed value of the capacitor due to the ZIF socket’s parasitic capacitance.</p>
+
+<p>Once you have the resonance frequency, calculate the inductance using this formula:</p>
+
+\[L_{\rm DUT} = \frac{1}{C_{\rm ref}(2 \pi f_{\rm res}  )^2}\]
+
+<p>Note that you do not need to subtract the inductance of the test fixture when using this method – its inductance doesn’t become part of the resonating circuit.</p>
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
