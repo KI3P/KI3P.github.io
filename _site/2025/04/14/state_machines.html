@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A better way to use state machines | Amateur Radio Homebrewing</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="A better way to use state machines" />
+<meta name="author" content="KI3P" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Motivation" />
+<meta property="og:description" content="Motivation" />
+<link rel="canonical" href="http://localhost:4000/2025/04/14/state_machines.html" />
+<meta property="og:url" content="http://localhost:4000/2025/04/14/state_machines.html" />
+<meta property="og:site_name" content="Amateur Radio Homebrewing" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-14T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A better way to use state machines" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"KI3P"},"dateModified":"2025-04-14T00:00:00-04:00","datePublished":"2025-04-14T00:00:00-04:00","description":"Motivation","headline":"A better way to use state machines","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/04/14/state_machines.html"},"url":"http://localhost:4000/2025/04/14/state_machines.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</script>
+
+    
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+<!-- 
+ -->
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>A better way to use state machines</h1>
+        <p>A website devoted to homebrewing amateur radio equipment by KI3P</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+	<a href="/"><strong>Home</strong></a>
+
+	
+          <a href="/2025/04/14/state_machines.html"><strong>   |   A better way to use state machines</strong></a>
+        
+          <a href="/2025/02/15/t41_bpf_winding.html"><strong>   |   T41 Bandpass Filter Winding</strong></a>
+        
+          <a href="/2024/12/09/t41_calibration.html"><strong>   |   T41 V12 Calibration</strong></a>
+        
+          <a href="/2024/01/16/so_how_does_a_qsd_work_anyway.html"><strong>   |   So how does a QSD work anyway?</strong></a>
+        
+          <a href="/2023/12/23/vswr_and_power_meter.html"><strong>   |   VSWR and Power Meter</strong></a>
+        
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="motivation">Motivation</h1>
+
+<p>One of my amateur radio pursuits is helping to maintain the <a href="https://github.com/KI3P/T41-V12-SDT">source code</a> for the T41 software defined transceiver. This code base is remarkable: a fully featured open source code for a radio transceiver. The code was originally derived from the <a href="https://github.com/DD4WH/Teensy-ConvolutionSDR/blob/master/Teensy_Convolution_SDR.ino">Teensy Convolution SDR</a> code, with many many contributors since then (primarily Jack Purdum W8TEE and Al Peter AC8GY) performing code refactoring, adding features, fixing bugs, etc. The code has evolved to support a host of different hardware versions over the years: V10, V11, V12, and combinations of boards from each.</p>
+
+<p>Any piece of code that receives so much attention from so many people will grow a bit ragged over time. Particularly so if the hardware target it’s written for is also evolving. All this adds up to the outcome that understanding and debugging the T41 code is not for the faint of heart, particularly since the Teensy 4.1 microcontroller board does not have a debug interface.</p>
+
+<p>I’ve been thinking about doing a major rewrite of the T41 code for a while. This rewrite has to solve several problems:</p>
+
+<ul>
+  <li>Hardware-dependent code is scattered throughout the code base. Changing the hardware design means tracking down all this code. This is particularly acute for the display code.</li>
+  <li>The code is impossible to test off-board, so debugging relies on scattering <code class="language-plaintext highlighter-rouge">printf</code> statements throughout the code, flashing it to the radio, then watching the serial port to find the bugs.</li>
+  <li>Because of the aforementioned scattering of hardware-dependent code, it’s easy to make a mistake and put your hardware in an undesirable configuration state.</li>
+</ul>
+
+<h1 id="the-solution">The solution</h1>
+
+<p>I think I can solve all three of these problems by taking the following steps:</p>
+
+<ol>
+  <li>Define a hardware abstraction layer for the radio hardware and a strict set of valid configuration states for the hardware.</li>
+  <li>Use state machines to move hardware between states in response to button presses, keyers, etc.</li>
+  <li>Use a testing framework like <a href="https://google.github.io/googletest/">Google Test</a> to automate testing of all the hardware-independent code.</li>
+</ol>
+
+<h2 id="configuration-states">Configuration states</h2>
+
+<p>I’m working my way through the hardware, examining the function of each configurable/controllable part of the hardware, and defining a set of valid states. They will look something like this:</p>
+
+<p><img src="/assets/images/better_way_state_machines/RF_board_states.png" alt="" /></p>
+
+<h2 id="state-machines">State machines</h2>
+
+<p>Then, I’m documenting various state machines that show how the radio transitions between states as various buttons are pressed or other events happen. I’m drawing them in little state diagrams like this.</p>
+
+<p><img src="/assets/images/better_way_state_machines/state_transitions_sketch.png" alt="" /></p>
+
+<p>The next step would be to write some C code to define these states and switch between them. This is good, but it has pitfalls: what if we change the control flow? The C code and the state diagram need to be manually updated and kept in sync. This is hard to keep doing over the long term, leading to code that is hard to understand because it doesn’t match the documentation.</p>
+
+<h1 id="a-better-way">A better way</h1>
+
+<p>I thought that surely someone had solved this problem and found a way to convert state machine drawings into code. If code can be automatically generated from the state machine drawing, then you only need to update the drawing and re-generate the code.</p>
+
+<p>And indeed, a quick search on the internet showed many such solutions. However, most are expensive and/or proprietary. I would like to keep the T41 software as open source as possible – this applies to the tooling as much as the code.</p>
+
+<p>That’s when I found <a href="https://github.com/StateSmith/StateSmith">StateSmith</a>. StateSmith allows me to draw the state diagram in <a href="https://www.drawio.com/">Draw.IO</a> and then generate C code from it. Here’s the same state diagram from before, but this time drawn using the StateSmith template and syntax.</p>
+
+<p><img src="/assets/images/better_way_state_machines/state_transitions_UML.png" alt="" /></p>
+
+<p>I can then generate C code using the command line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ss.cli run -h
+</code></pre></div></div>
+
+<p>This generates two files: <code class="language-plaintext highlighter-rouge">ModeSm.c</code> and <code class="language-plaintext highlighter-rouge">ModeSm.h</code>. These define a state machine that contains all the logic and control flow of the drawing. This extract from my testing code (more on this in a later post) shows how to use it.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"ModeSm.h"</span><span class="cp">
+</span><span class="c1">// Create a ModeSm state machine and start it (enter the initial state)</span>
+<span class="n">ModeSm</span> <span class="n">sm</span><span class="p">;</span>
+<span class="n">ModeSm_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sm</span><span class="p">);</span>
+
+<span class="c1">// Check that we're in the expected start state of SSB_RECEIVE</span>
+<span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">sm</span><span class="p">.</span><span class="n">state_id</span><span class="p">,</span> <span class="n">ModeSm_StateId_SSB_RECEIVE</span><span class="p">);</span>
+
+<span class="c1">// Send an event that corresponds to the MODE button being pressed</span>
+<span class="c1">// and confirm that we've switched to the CW_RECEIVE state</span>
+<span class="n">ModeSm_dispatch_event</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sm</span><span class="p">,</span> <span class="n">ModeSm_EventId_MODE</span><span class="p">);</span>
+<span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">sm</span><span class="p">.</span><span class="n">state_id</span><span class="p">,</span> <span class="n">ModeSm_StateId_CW_RECEIVE</span><span class="p">);</span>
+
+<span class="c1">// Send a KEY1_PRESSED event, check that we switched to the</span>
+<span class="c1">// CW_TRANSMIT_MARK state</span>
+<span class="n">ModeSm_dispatch_event</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sm</span><span class="p">,</span> <span class="n">ModeSm_EventId_KEY1_PRESSED</span><span class="p">);</span>
+<span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">sm</span><span class="p">.</span><span class="n">state_id</span><span class="p">,</span> <span class="n">ModeSm_StateId_CW_TRANSMIT_MARK</span><span class="p">);</span>
+
+<span class="c1">// Send a KEY1_RELEASED event, check that we switched to the</span>
+<span class="c1">// CW_TRANSMIT_SPACE state</span>
+<span class="n">ModeSm_dispatch_event</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sm</span><span class="p">,</span> <span class="n">ModeSm_EventId_KEY1_RELEASED</span><span class="p">);</span>
+<span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">sm</span><span class="p">.</span><span class="n">state_id</span><span class="p">,</span> <span class="n">ModeSm_StateId_CW_TRANSMIT_SPACE</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The state machine expects functions called <code class="language-plaintext highlighter-rouge">ModeSSBReceiveEnter()</code>, <code class="language-plaintext highlighter-rouge">ModeSSBReceiveExit()</code>, etc. to be defined somewhere else. This lets me separate all my radio-specific code from the state machine by placing it in these functions.</p>
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
