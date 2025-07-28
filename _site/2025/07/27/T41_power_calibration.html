@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>T41 V12 Power Calibration | Amateur Radio Homebrewing</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="T41 V12 Power Calibration" />
+<meta name="author" content="KI3P" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://localhost:4000/2025/07/27/T41_power_calibration.html" />
+<meta property="og:url" content="http://localhost:4000/2025/07/27/T41_power_calibration.html" />
+<meta property="og:site_name" content="Amateur Radio Homebrewing" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-27T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="T41 V12 Power Calibration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"KI3P"},"dateModified":"2025-07-27T00:00:00-04:00","datePublished":"2025-07-27T00:00:00-04:00","description":"Introduction","headline":"T41 V12 Power Calibration","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/07/27/T41_power_calibration.html"},"url":"http://localhost:4000/2025/07/27/T41_power_calibration.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</script>
+
+    
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+<!-- 
+ -->
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>T41 V12 Power Calibration</h1>
+        <p>A website devoted to homebrewing amateur radio equipment by KI3P</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+	<a href="/"><strong>Home</strong></a>
+
+	
+          <a href="/2025/07/27/T41_power_calibration.html"><strong>   |   T41 V12 Power Calibration</strong></a>
+        
+          <a href="/2025/06/28/T41_power_characterization.html"><strong>   |   T41 V12 Power Characterization</strong></a>
+        
+          <a href="/2025/04/14/state_machines.html"><strong>   |   A better way to use state machines</strong></a>
+        
+          <a href="/2025/02/15/t41_bpf_winding.html"><strong>   |   T41 Bandpass Filter Winding</strong></a>
+        
+          <a href="/2024/12/09/t41_calibration.html"><strong>   |   T41 V12 Calibration</strong></a>
+        
+          <a href="/2024/01/16/so_how_does_a_qsd_work_anyway.html"><strong>   |   So how does a QSD work anyway?</strong></a>
+        
+          <a href="/2023/12/23/vswr_and_power_meter.html"><strong>   |   VSWR and Power Meter</strong></a>
+        
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="introduction">Introduction</h1>
+
+<p>The transmit power calibration process for the <a href="https://github.com/KI3P/T41-V12-SDT">T41 software defined transceiver</a> involves figuring out how to control the signal levels at various points in the receiver to result in transmitting a known amount of clean power. The <a href="https://www.ki3p.me/2025/06/28/T41_power_characterization.html">previous post</a> focused on the clean part – how to measure intermodulation distortion at varying power levels. This post focuses on the power calibration process.</p>
+
+<p>Here is a simplified schematic of the transmit chain of the T41 radio:</p>
+
+<p><img src="/assets/images/power_characterization/simplified_transmit_chain.png" alt="" /></p>
+
+<h1 id="cw-power-level-calibration">CW Power Level Calibration</h1>
+
+<p>For CW signals, the power level being transmitted is controlled by a digital step attenuator on the RF board. We use a <a href="https://www.psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe4312">PE4312</a> attenuator, which allows you to select attenuations in 0.5 dB steps between 0 and 31.5 dB. The CW tone is generated by the <a href="https://github.com/DRWJSCHMIDT/T41/blob/main/T41_V012_Files/T41_V012_Schematic_PDFs/T41_RF_Board_Schematic_V12.6_020925.pdf">Si5351</a> chip; in the previous post, we characterized how much power this produces at the output of the RF board as the attenuation is varied:</p>
+
+<p><img src="/assets/images/power_characterization/RFboard_power_out_in_CW_mode.png" alt="" /></p>
+
+<p>We can’t accurately predict from this plot how much power will leave the antenna port of our radio – the amplifier gain will vary a bit from build to build and band to band, as will the passband loss of the BPF and LPF filters.</p>
+
+<p>So the calibration process is fairly simple: for a desired output power, measure what attenuation value results in this power at the output of the radio in each band. You can then change the power to a specified value based off this known data point by changing the attenuation by a known amount.</p>
+
+<p><img src="/assets/images/power_calibration/CW_calibration.png" alt="" /></p>
+
+<p>The process is shown in the diagram above: set the calibrated power level using the RF Set -&gt; Power level menu, and save this in the variable powerOutCW[currentBand]. This value should be 5 W to stay in the linear regime of the amplifier.</p>
+
+<p>Then, in the CW PA Calibration menu, vary the attenuation until the power leaving the radio, as measured using an external power meter, matches this setting. The attenuation level that resulted in this power is saved in CWPowerCalibrationFactor[currentBand].</p>
+
+<p>Then, if we change the value of the attenuator we can calculate the new transmitted power as:</p>
+
+\[P = P_{\rm cal} 10^\frac{A_{\rm cal} - A}{10}\]
+
+<p>where \(P_{\rm cal},A_{\rm cal}\) are the power and attenuation we identified above and \(A\) is the attenuator setting in dB. Or, in code, as:</p>
+<pre><code class="language-C">transmitPowerLevelCW = powerOutCW[currentBand] * 
+    pow(10, (CWPowerCalibrationFactor[currentBand] - attenuation )/10.0 );
+</code></pre>
+
+<p>Alternatively, if we want to change the power level we can calculate the attenuation that will deliver this power according to:</p>
+
+<pre><code class="language-C">attenuation = CWPowerCalibrationFactor[currentBand] 
+    - 10*log10f(transmitPowerLevelCW / powerOutCW[currentBand]);
+</code></pre>
+
+<p>This is shown in a diagram below: changing the output attenuation updates the calculation of the power being transmitted, and changing the value of the power being transmitted updates the attenuator setting.</p>
+
+<p><img src="/assets/images/power_calibration/calibration_use_during_transmit.png" alt="" /></p>
+
+<h1 id="ssb-power-level-calibration">SSB Power Level Calibration</h1>
+
+<p>SSB calibration is very similar, except that we use a tone generated in the DSP code of the transceiver when performing the calibration:</p>
+
+<p><img src="/assets/images/power_calibration/SSB_calibration.png" alt="" /></p>
+
+<p>There is one more factor to pay attention to in SSB calibration, which is the microphone gain. The calibration process uses a fixed amplitude sinusoidal tone. But every radio may have a different microphone, and every user will have a different voice. So after the power level is set using the sinusoidal tone you then need to set the microphone gain such that your normal speaking voice delivers the power level you want.</p>
+
+<h1 id="power-and-swr-measurement-calibration">Power and SWR Measurement Calibration</h1>
+
+<p>The LPF control board for the T41 <a href="https://github.com/DRWJSCHMIDT/K9HZ/blob/main/K9HZ_LPF_Module/K9HZ_LPF_V1.00_Schematic_PDFs/K9HZ_LPF-Control_Board_Schematic_V1.10_02-14-24_KiCad.pdf">contains a circuit</a> that measures the forward power and the reverse power. This allows us to measure the power we’re transmitting, and to calculate the SWR on the transmission line. The relevant bit of circuitry is excerpted below:</p>
+
+<p><img src="/assets/images/power_calibration/swr_bridge_schematic.png" alt="" /></p>
+
+<h2 id="power-measurement-errors">Power measurement errors</h2>
+
+<p>After some attenuation through the directional coupler and attenuator pads, the signal is measured by <a href="https://www.analog.com/en/products/ad8307.html">AD8307</a> logarithmic amps. These devices produce an output voltage proportional to their input power according to the following formula (in the ideal case):</p>
+
+\[V_{\rm out} [{\rm mV}] = 25(P_{\rm in}[{\rm dBm}] + 84)\]
+
+<p>In the recommended configuration for a 20W radio, the coupler and attenuator between them will reduce the signal amplitude by 46 dB, so \(P_{\rm in}[{\rm dBm}] = P_{\rm TX}[{\rm dBm}]-46\). We can therefore calculate the power on the transmission line from the voltage out of the AD8307 according to this formula:</p>
+
+\[P_{\rm TX}[{\rm dBm}] = \frac{V_{\rm out} [{\rm mV}]}{25} - 84 + C [{\rm dB}]\]
+
+<p>where \(C\) is the coupler + attenuator value of 46 dB (or whatever).</p>
+
+<p>However, that’s not quite right. The AD8307 devices has two errors that need to be compensated for in the calibration process. The first is an error in the slope, which is nominally 25 mV/dB, but can vary from 23 to 27. The second is an error in the offset, which is nominally -84 dBm but can vary from -87 to -77, according to the datasheet. The formula relating the transmission line power to output voltage is actually:</p>
+
+\[P_{\rm TX}[{\rm dBm}] = \frac{V_{\rm out} [{\rm mV}]}{25+e_s} - 84 +e_i + C [{\rm dB}]\]
+
+<p>Here, \(e_s\) is the error term in the slope and \(e_i\) is the error term in the intercept.</p>
+
+<h2 id="power-measurement-calibration">Power measurement calibration</h2>
+
+<p>Let’s see this in practice. The plot below shows how the output voltage of the forward path AD8307 varies as I increase the attenuation from its nominal setting. The radio was in CW mode. As expected, the output voltage drops as the attenuation is increased.</p>
+
+<p><img src="/assets/images/power_calibration/AD8307_output_vs_att_with_fit.png" alt="" /></p>
+
+<p>Also plotted is the best-fit slope. The slope of this line should be 25 mV/dB – in reality I measure 22.7 mV / dB. So the slope error term is \(e_s = -2.3\). We repeat this process in each of the bands to measure the slope intercept:</p>
+
+<ol>
+  <li>Configure for CW mode with the nominal band attenuation setting. Measure the voltage out of the AD8307.</li>
+  <li>Increase the attenuation in 0.5 dB steps, measuring the AD8307 output at each step.</li>
+  <li>Perform a least-squares fit to the line formed by (attenuation, voltage) points, obtaining the slope \(m\).</li>
+  <li>Calculate the error term \(e_s = m-25\).</li>
+</ol>
+
+<p>Once we have performed the CW Power Amp calibration we can also calculate the intercept error term \(e_i\). Let’s calculate what we think the power is, including the slope intercept we just calculated:</p>
+
+\[\begin{aligned}
+P_{\rm out} &amp; = \frac{V_{\rm out} }{25-2.3} - 84 + 46 + e_i \\
+           &amp; = \frac{2028}{22.7} -38 + e_i \\
+           &amp; = 51.34 + e_i \\
+\end{aligned}\]
+
+<p>At the band’s calibrated power setting, we know that the output power is actually 5W, which is 36.99 dBm. So we can then calculate the intercept offset:</p>
+
+\[\begin{aligned}
+36.99 &amp; = 51.34 + e_i \\
+\therefore e_i &amp; = 36.99-51.34 \\
+     &amp; = -14.35 \\
+\end{aligned}\]
+
+<p>We can repeat this calculation using all the other attenuation values and calculate the average intercept offset. The comparison of the corrected power and the predicted actual power is shown in the plot below:</p>
+
+<p><img src="/assets/images/power_calibration/AD8307_calibrated_output.png" alt="" /></p>
+
+<h2 id="swr-calibration">SWR calibration</h2>
+
+<p>So now we have a method to correct the power measurement. This is easily done for the forward power measurement circuit as we can use an external power meter with a 50 Ohm dummy load on its output. For the reflected power measurement circuit, we need to have a signal of known power reflected back into the radio. We achieve this by using a dummy load that is not at 50 Ohms.</p>
+
+<p>How much power is reflected if I use, say, a 100 Ohm dummy load? The reflection coefficient is then:</p>
+
+\[\begin{aligned}
+\Gamma &amp;= \frac{Z_L-Z_0}{Z_L+Z_0} \\
+	   &amp;= \frac{100-50}{100+50} \\
+       &amp;= \frac{1}{3}
+\end{aligned}\]
+
+<p>The SWR is:</p>
+
+\[\begin{aligned}
+SWR &amp;= \frac{1+|\Gamma| }{1-|\Gamma|} \\
+    &amp;= 2
+\end{aligned}\]
+
+<p>And finally the reflected power is:</p>
+
+\[\begin{aligned}
+P_R &amp;= P_F \Bigg( \frac{SWR-1}{SWR+1} \Bigg)^2 \\
+  &amp;= P_F \Bigg( \frac{1}{3} \Bigg)^2 \\
+  &amp;= \frac{P_F}{9}
+\end{aligned}\]
+
+<p>Therefore, if we connect a 100 Ohm dummy load to the antenna output, we can use the power measurement calibration approach described above to calibrate the reflected power measurement circuit too.</p>
+
+<h3 id="making-a-good-dummy-load">Making a good dummy load</h3>
+
+<p>A brief aside on making a good dummy load. For the purposes of this test the dummy load should be purely resistive. You might be tempted to use a resistor like those in the photo below – these are capable of supporting a high power load and can be picked up cheaply at hamfests.</p>
+
+<p><img src="/assets/images/power_calibration/inductive_wirewound_resistors.jpg" alt="" /></p>
+
+<p>However, these are wirewound resistors, which means that, while they might be a resistor at DC, at HF frequencies they have a substantial inductance. This can be see on a Smith chart – the chart below compares a ~100 Ohm ceramic resistor to a wirewound resistor of the same DC resistance. The VNA swept from 1 to 60 MHz, and you can see that the impedance of the wirewound resistor is substantially higher than 100 Ohms over this whole range.</p>
+
+<p><img src="/assets/images/power_calibration/wire_wound_vs_ceramic.png" alt="" /></p>
+
+<p>To make a dummy load capable of sinking many watts of power, you might think that you need to use <a href="https://forum.digikey.com/t/inductive-vs-non-inductive-resistors/62">non-inductive wirewound resistors</a>. However, these might not deliver the expected performance. I bought some <a href="https://www.amazon.com/dp/B0CN2K2V9F">precision non-inductive wirewound resistors</a> on Amazon and found that they did not behave like pure resistors. The Smith plot below shows that the 125 Ohm non-inductive resistor does not behave like a 125 Ohm resistor between 1 and 60 MHz.</p>
+
+<p><img src="/assets/images/power_calibration/wire_wound_vs_non_inductive_ww.png" alt="" /></p>
+
+<p>To create an actual resistive load I used <a href="https://www.mouser.com/ProductDetail/72-LTO100F100R0FTE3">these thick film ceramic resistors</a>. These had the expected behavior over the 1 to 60 MHz range.</p>
+
+<p><img src="/assets/images/power_calibration/comparison_of_all_loads.png" alt="" /></p>
+
+<p>Plotting the VSWR, I get the expected performance (note that VNA was not accurately calibrated for this measurement).</p>
+
+<p><img src="/assets/images/power_calibration/ceramic_loads_VSWR.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>\(Z_L [\rm Ohms]\)</th>
+      <th>\(\Gamma\)</th>
+      <th>SWR</th>
+      <th>\(P_R / P_F\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>50</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>1/3</td>
+      <td>2</td>
+      <td>1/9 = 0.333</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>3/5</td>
+      <td>4</td>
+      <td>9/25 = 0.36</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
