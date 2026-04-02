@@ -27,17 +27,17 @@ A calibrated NanoVNA was used to measure the insertion loss between the common R
 
 # Switches under test
 
-| Part # | LCSC | Digikey | Mouser | P1 [dB] | Isolation [dB]* | Single control |
-|--------|------|---------|--------|------|-------|-----|
-| AS179-92LF | [$1.36](https://www.lcsc.com/product-detail/C83422.html) | [$1.06](https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013) | [$1.06](https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D) | 30 | -85 | No |
-| XA17-G4K | [$0.54](https://www.lcsc.com/product-detail/C513494.html) | NA | NA | 30 | -79 | No |
-| TPHWS314 | [$0.14](https://www.lcsc.com/product-detail/C47117617.html) | NA | NA | 30 | -78 | No |
-| TPE4259-63 | [$0.13](https://www.lcsc.com/product-detail/C47117600.html) | NA | NA | 31 | -76 | No |
-| HX4259-63-ST | [$0.15](https://www.lcsc.com/product-detail/C48031087.html) | NA | NA | 33.5 | -75 | Yes |
-| PE4259-63 | [$0.62](https://www.lcsc.com/product-detail/C470892.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/4259-63/2614473?s=N4IgTCBcDaIAoFEAsYCsBOAtANgMwgF0BfIA) | NA | 33.5 | -64 | Yes |
-| PE42421-SCAA-Z | [$1.51](https://www.lcsc.com/product-detail/C470893.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/PE42421SCAA-Z/3728588?s=N4IgTCBcDaIAoFEAsYUEYDKBhAgjgtAFogC6AvkA) | [$0.79](https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D) | 33.5 | -65 | Yes | 
-| MASWSS0115TR-3000 | [$1.97](https://www.lcsc.com/product-detail/C3304186.html) | [$1.32](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0115TR-3000/4429789) | [$1.32](https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D) | 25 | -48 | No |
-| MASWSS0179TR-3000** | [$0.48](https://www.lcsc.com/product-detail/C3304462.html) | [$1.06](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0179TR-3000/4429803) | [$1.05](https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D) | 16 | -48 | No |
+| Part # | LCSC | Digikey | Mouser | P1 [dB] | Isolation [dB]* | Single control | Unterminated switch |
+|--------|------|---------|--------|------|-------|-----|----|
+| AS179-92LF | [$1.36](https://www.lcsc.com/product-detail/C83422.html) | [$1.06](https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013) | [$1.06](https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D) | 30 | -85 | No | Float |
+| XA17-G4K | [$0.54](https://www.lcsc.com/product-detail/C513494.html) | NA | NA | 30 | -79 | No | Float |
+| TPHWS314 | [$0.14](https://www.lcsc.com/product-detail/C47117617.html) | NA | NA | 30 | -78 | No | Float |
+| TPE4259-63 | [$0.13](https://www.lcsc.com/product-detail/C47117600.html) | NA | NA | 31 | -76 | No | Float |
+| HX4259-63-ST | [$0.15](https://www.lcsc.com/product-detail/C48031087.html) | NA | NA | 33.5 | -75 | Yes | Ground | 
+| PE4259-63 | [$0.62](https://www.lcsc.com/product-detail/C470892.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/4259-63/2614473?s=N4IgTCBcDaIAoFEAsYCsBOAtANgMwgF0BfIA) | NA | 33.5 | -64 | Yes | Ground |
+| PE42421-SCAA-Z | [$1.51](https://www.lcsc.com/product-detail/C470893.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/PE42421SCAA-Z/3728588?s=N4IgTCBcDaIAoFEAsYUEYDKBhAgjgtAFogC6AvkA) | [$0.79](https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D) | 33.5 | -65 | Yes | Ground |
+| MASWSS0115TR-3000 | [$1.97](https://www.lcsc.com/product-detail/C3304186.html) | [$1.32](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0115TR-3000/4429789) | [$1.32](https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D) | 25 | -48 | No | Float |
+| MASWSS0179TR-3000** | [$0.48](https://www.lcsc.com/product-detail/C3304462.html) | [$1.06](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0179TR-3000/4429803) | [$1.05](https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D) | 16 | -48 | No | Float |
 
 (NA = Not Available. *At 1MHz. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026).
 
