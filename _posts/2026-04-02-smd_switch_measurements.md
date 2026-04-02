@@ -27,7 +27,7 @@ A calibrated NanoVNA was used to measure the insertion loss between the common R
 
 # Switches under test
 
-| Part # | LCSC | Digikey | Mouser | P1 [dB] | Isolation [dB]* | Single control | Unterminated switch |
+| Part # | LCSC | Digikey | Mouser | P1 [dB] | Isolation [dB]* | Single control | Unconnected switch |
 |--------|------|---------|--------|------|-------|-----|----|
 | AS179-92LF | [$1.36](https://www.lcsc.com/product-detail/C83422.html) | [$1.06](https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013) | [$1.06](https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D) | 30 | -85 | No | Float |
 | XA17-G4K | [$0.54](https://www.lcsc.com/product-detail/C513494.html) | NA | NA | 30 | -79 | No | Float |
