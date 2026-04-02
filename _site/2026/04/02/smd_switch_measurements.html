@@ -96,15 +96,13 @@
 
 <p><img src="/assets/images/smd_rf_switches/pinout.png" alt="Chip pinout" /></p>
 
-<p>I used a measurement jig to enable devices under test to be switched in and out. The control lines were driven at 3.3V by a microcontroller. A picture of the test jig is shown below.</p>
+<p>I used a measurement jig to enable devices under test to be switched in and out. The control lines were driven at 3.3V by a microcontroller. A picture of the test jig is shown below. A 100 nF capacitor was inserted between the RF pins and the SMA connectors.</p>
 
 <p><img src="/assets/images/smd_rf_switches/measurement_jig.jpg" alt="Measurement jig" /></p>
 
 <p>A calibrated NanoVNA was used to measure the insertion loss between the common RF connection (RFC) and the two output RF connections RF1 and RF2; the RF output not being tested was terminated with a 50 Ohm load.</p>
 
 <h1 id="switches-under-test">Switches under test</h1>
-
-<p>The first tranche of devices did not need a DC blocking capacitor between the VNA inputs/outputs and the switch RF ports.</p>
 
 <table>
   <thead>
@@ -114,7 +112,8 @@
       <th>Digikey</th>
       <th>Mouser</th>
       <th>P1 [dB]</th>
-      <th>Isolation [dB] @ 1 MHz</th>
+      <th>Isolation [dB]*</th>
+      <th>Single control</th>
     </tr>
   </thead>
   <tbody>
@@ -125,6 +124,7 @@
       <td><a href="https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D">$1.06</a></td>
       <td>30</td>
       <td>-85</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>XA17-G4K</td>
@@ -133,6 +133,7 @@
       <td>NA</td>
       <td>30</td>
       <td>-79</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>TPHWS314</td>
@@ -141,6 +142,7 @@
       <td>NA</td>
       <td>30</td>
       <td>-78</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>TPE4259-63</td>
@@ -149,6 +151,7 @@
       <td>NA</td>
       <td>31</td>
       <td>-76</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>HX4259-63-ST</td>
@@ -157,6 +160,7 @@
       <td>NA</td>
       <td>33.5</td>
       <td>-75</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>PE4259-63</td>
@@ -165,6 +169,7 @@
       <td>NA</td>
       <td>33.5</td>
       <td>-64</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>PE42421-SCAA-Z</td>
@@ -173,6 +178,7 @@
       <td><a href="https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D">$0.79</a></td>
       <td>33.5</td>
       <td>-65</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>MASWSS0115TR-3000</td>
@@ -181,6 +187,7 @@
       <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D">$1.32</a></td>
       <td>25</td>
       <td>-48</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>MASWSS0179TR-3000**</td>
@@ -189,13 +196,14 @@
       <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D">$1.05</a></td>
       <td>16</td>
       <td>-48</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-<p>(NA = Not Available. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026).</p>
+<p>(NA = Not Available. *At 1MHz. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026).</p>
 
-<p>All the devices in this category continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted cyan in the plots below.</p>
+<p>All the devices continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted greenish in the plots below.</p>
 
 <p><img src="/assets/images/smd_rf_switches/RF_insertion_loss.png" alt="Insertion loss" /></p>
 
