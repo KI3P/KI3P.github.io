@@ -19,15 +19,13 @@ The devices tested here all have the same pinout, shown below. Some devices allo
 
 ![Chip pinout](/assets/images/smd_rf_switches/pinout.png)
 
-I used a measurement jig to enable devices under test to be switched in and out. The control lines were driven at 3.3V by a microcontroller. A picture of the test jig is shown below.
+I used a measurement jig to enable devices under test to be switched in and out. The control lines were driven at 3.3V by a microcontroller. A picture of the test jig is shown below. A 100 nF capacitor was inserted between the RF pins and the SMA connectors.
 
 ![Measurement jig](/assets/images/smd_rf_switches/measurement_jig.jpg)
 
 A calibrated NanoVNA was used to measure the insertion loss between the common RF connection (RFC) and the two output RF connections RF1 and RF2; the RF output not being tested was terminated with a 50 Ohm load.
 
 # Switches under test
-
-The first tranche of devices did not need a DC blocking capacitor between the VNA inputs/outputs and the switch RF ports.
 
 | Part # | LCSC | Digikey | Mouser | P1 [dB] | Isolation [dB] @ 1 MHz |
 |--------|------|---------|--------|------|-------|
@@ -43,7 +41,7 @@ The first tranche of devices did not need a DC blocking capacitor between the VN
 
 (NA = Not Available. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026).
 
-All the devices in this category continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted cyan in the plots below.
+All the devices continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted greenish in the plots below.
 
 ![Insertion loss](/assets/images/smd_rf_switches/RF_insertion_loss.png)
 
