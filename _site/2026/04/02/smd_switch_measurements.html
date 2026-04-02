@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Surface Mount RF Switch Measurements | Amateur Radio Homebrewing</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Surface Mount RF Switch Measurements" />
+<meta name="author" content="KI3P" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://localhost:4000/2026/04/02/smd_switch_measurements.html" />
+<meta property="og:url" content="http://localhost:4000/2026/04/02/smd_switch_measurements.html" />
+<meta property="og:site_name" content="Amateur Radio Homebrewing" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-04-02T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Surface Mount RF Switch Measurements" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"KI3P"},"dateModified":"2026-04-02T00:00:00-04:00","datePublished":"2026-04-02T00:00:00-04:00","description":"Introduction","headline":"Surface Mount RF Switch Measurements","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2026/04/02/smd_switch_measurements.html"},"url":"http://localhost:4000/2026/04/02/smd_switch_measurements.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-3.3.0.min.js" integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+<!-- 
+ -->
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Surface Mount RF Switch Measurements</h1>
+        <p>A website devoted to homebrewing amateur radio equipment by KI3P</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+	<a href="/"><strong>Home</strong></a>
+
+	
+          <a href="/2026/04/02/smd_switch_measurements.html"><strong>   |   Surface Mount RF Switch Measurements</strong></a>
+        
+          <a href="/2025/07/27/T41_power_calibration.html"><strong>   |   T41 V12 Power Calibration</strong></a>
+        
+          <a href="/2025/06/28/T41_power_characterization.html"><strong>   |   T41 V12 Power Characterization</strong></a>
+        
+          <a href="/2025/04/14/state_machines.html"><strong>   |   A better way to use state machines</strong></a>
+        
+          <a href="/2025/02/15/t41_bpf_winding.html"><strong>   |   T41 Bandpass Filter Winding</strong></a>
+        
+          <a href="/2024/12/09/t41_calibration.html"><strong>   |   T41 V12 Calibration</strong></a>
+        
+          <a href="/2024/01/16/so_how_does_a_qsd_work_anyway.html"><strong>   |   So how does a QSD work anyway?</strong></a>
+        
+          <a href="/2023/12/23/vswr_and_power_meter.html"><strong>   |   VSWR and Power Meter</strong></a>
+        
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1 id="introduction">Introduction</h1>
+
+<p>Most commercial surface mount RF switches on the market do not specify how well they work at HF frequencies. In reality, most are likely to work quite well, despite most switches having a minimum input frequency of 10 or 20 MHz. This post characterizes a number of switches available on the market in the SC70-6 / SOT363 footprint between 500 kHz and 100 MHz. I am primarily interested in the insertion loss and isolation of the switches.</p>
+
+<h1 id="measurement-setup">Measurement setup</h1>
+
+<p>Individual switches were soldered onto SC70-6 to DIP breakboards available on <a href="https://www.amazon.com/dp/B0G1SGFKJH">Amazon</a>. Photographs showing a close-up view of a soldered part and the full breakout board are shown below.</p>
+
+<p><img src="/assets/images/smd_rf_switches/breakout_board.png" alt="An SC70-6 footprint switch soldered into a breakout board" /></p>
+
+<p>The devices tested here all have the same pinout, shown below. Some devices allow a single control logic signal in addition to complementary logic signals; all devices were tested with complementary control logic signals, i.e., if one control line was driven high, the other was driven low.</p>
+
+<p><img src="/assets/images/smd_rf_switches/pinout.png" alt="Chip pinout" /></p>
+
+<p>I used a measurement jig to enable devices under test to be switched in and out. The control lines were driven at 3.3V by a microcontroller. A picture of the test jig is shown below.</p>
+
+<p><img src="/assets/images/smd_rf_switches/measurement_jig.jpg" alt="Measurement jig" /></p>
+
+<p>A calibrated NanoVNA was used to measure the insertion loss between the common RF connection (RFC) and the two output RF connections RF1 and RF2; the RF output not being tested was terminated with a 50 Ohm load.</p>
+
+<h1 id="switches-under-test">Switches under test</h1>
+
+<p>The first tranche of devices did not need a DC blocking capacitor between the VNA inputs/outputs and the switch RF ports.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part #</th>
+      <th>LCSC</th>
+      <th>Digikey</th>
+      <th>Mouser</th>
+      <th>P1 [dB]</th>
+      <th>Isolation [dB] @ 1 MHz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AS179-92LF</td>
+      <td><a href="https://www.lcsc.com/product-detail/C83422.html">$1.36</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013">$1.06</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D">$1.06</a></td>
+      <td>30</td>
+      <td>-85</td>
+    </tr>
+    <tr>
+      <td>XA17-G4K</td>
+      <td><a href="https://www.lcsc.com/product-detail/C513494.html">$0.54</a></td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>30</td>
+      <td>-79</td>
+    </tr>
+    <tr>
+      <td>TPHWS314</td>
+      <td><a href="https://www.lcsc.com/product-detail/C47117617.html">$0.14</a></td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>30</td>
+      <td>-78</td>
+    </tr>
+    <tr>
+      <td>TPE4259-63</td>
+      <td><a href="https://www.lcsc.com/product-detail/C47117600.html">$0.13</a></td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>31</td>
+      <td>-76</td>
+    </tr>
+    <tr>
+      <td>HX4259-63-ST</td>
+      <td><a href="https://www.lcsc.com/product-detail/C48031087.html">$0.15</a></td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>33.5</td>
+      <td>-75</td>
+    </tr>
+    <tr>
+      <td>PE4259-63</td>
+      <td><a href="https://www.lcsc.com/product-detail/C470892.html">$0.62</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/psemi/4259-63/2614473?s=N4IgTCBcDaIAoFEAsYCsBOAtANgMwgF0BfIA">$0.79</a></td>
+      <td>NA</td>
+      <td>33.5</td>
+      <td>-64</td>
+    </tr>
+    <tr>
+      <td>PE42421-SCAA-Z</td>
+      <td><a href="https://www.lcsc.com/product-detail/C470893.html">$1.51</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/psemi/PE42421SCAA-Z/3728588?s=N4IgTCBcDaIAoFEAsYUEYDKBhAgjgtAFogC6AvkA">$0.79</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D">$0.79</a></td>
+      <td>33.5</td>
+      <td>-65</td>
+    </tr>
+    <tr>
+      <td>MASWSS0115TR-3000</td>
+      <td><a href="https://www.lcsc.com/product-detail/C3304186.html">$1.97</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0115TR-3000/4429789">$1.32</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D">$1.32</a></td>
+      <td>25</td>
+      <td>-48</td>
+    </tr>
+    <tr>
+      <td>MASWSS0179TR-3000**</td>
+      <td><a href="https://www.lcsc.com/product-detail/C3304462.html">$0.48</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0179TR-3000/4429803">$1.06</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D">$1.05</a></td>
+      <td>16</td>
+      <td>-48</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(NA = Not Available. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026).</p>
+
+<p>All the devices in this category continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted cyan in the plots below.</p>
+
+<p><img src="/assets/images/smd_rf_switches/RF_insertion_loss.png" alt="Insertion loss" /></p>
+
+<p>Note that the absolute value of the insertion loss includes the loss of the measurement jig and breakout board and is not representative of the SMD device’s insertion loss. However, since all devices shared the same measurement jig and breakout board, they can be compared relative to each other.</p>
+
+<p><img src="/assets/images/smd_rf_switches/RF_isolation.png" alt="Isolation" /></p>
+
+<h1 id="conclusions">Conclusions</h1>
+
+<p>Almost every switch tested works significantly better than the MASWSS0179 version used in the T41 V12 radio. The optimum parts from a cost and isolation performance perspective are provided in the table below. They are Asian brands not available through Digikey or Mouser. The AS179-92LF part has the best isolation performance and is available from US suppliers, but is also significantly more expensive.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part #</th>
+      <th>LCSC</th>
+      <th>Digikey</th>
+      <th>Mouser</th>
+      <th>P1 [dB]</th>
+      <th>Isolation [dB] @ 1 MHz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TPHWS314</td>
+      <td><a href="https://www.lcsc.com/product-detail/C47117617.html">$0.14</a></td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>30</td>
+      <td>-78</td>
+    </tr>
+    <tr>
+      <td>TPE4259-63</td>
+      <td><a href="https://www.lcsc.com/product-detail/C47117600.html">$0.13</a></td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>31</td>
+      <td>-76</td>
+    </tr>
+    <tr>
+      <td>HX4259-63-ST</td>
+      <td><a href="https://www.lcsc.com/product-detail/C48031087.html">$0.15</a></td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>33.5</td>
+      <td>-75</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </section>
+      <footer>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
