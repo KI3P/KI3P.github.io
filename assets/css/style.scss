@@ -1,0 +1,29 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Custom width overrides */
+.wrapper {
+  width: 850px;
+}
+
+section {
+  width: 750px;
+}
+
+/* Adjust left navigation to prevent overlap with wider section */
+nav {
+  margin-left: -680px;
+}
+
+/* Adjust footer to prevent overlap with wider section */
+footer {
+  margin-left: -610px;
+}
+
+@media print, screen and (max-width: 1060px) {
+  section {
+    max-width: 750px;
+  }
+}
