@@ -111,7 +111,106 @@
       <th>LCSC</th>
       <th>Digikey</th>
       <th>Mouser</th>
-      <th>P1 [dB]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AS179-92LF</td>
+      <td><a href="https://www.lcsc.com/product-detail/C83422.html">$1.36</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013">$1.06</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D">$1.06</a></td>
+    </tr>
+    <tr>
+      <td>XA17-G4K</td>
+      <td><a href="https://www.lcsc.com/product-detail/C513494.html">$0.54</a></td>
+      <td>NA</td>
+      <td>NA</td>
+    </tr>
+    <tr>
+      <td>TPHWS314</td>
+      <td><a href="https://www.lcsc.com/product-detail/C47117617.html">$0.14</a></td>
+      <td>NA</td>
+      <td>NA</td>
+    </tr>
+    <tr>
+      <td>TPE4259-63</td>
+      <td><a href="https://www.lcsc.com/product-detail/C47117600.html">$0.13</a></td>
+      <td>NA</td>
+      <td>NA</td>
+    </tr>
+    <tr>
+      <td>HX4259-63-ST</td>
+      <td><a href="https://www.lcsc.com/product-detail/C48031087.html">$0.15</a></td>
+      <td>NA</td>
+      <td>NA</td>
+    </tr>
+    <tr>
+      <td>PE4259-63</td>
+      <td><a href="https://www.lcsc.com/product-detail/C470892.html">$0.62</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/psemi/4259-63/2614473?s=N4IgTCBcDaIAoFEAsYCsBOAtANgMwgF0BfIA">$0.79</a></td>
+      <td>NA</td>
+    </tr>
+    <tr>
+      <td>PE42421-SCAA-Z</td>
+      <td><a href="https://www.lcsc.com/product-detail/C470893.html">$1.51</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/psemi/PE42421SCAA-Z/3728588?s=N4IgTCBcDaIAoFEAsYUEYDKBhAgjgtAFogC6AvkA">$0.79</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D">$0.79</a></td>
+    </tr>
+    <tr>
+      <td>MASWSS0115TR-3000</td>
+      <td><a href="https://www.lcsc.com/product-detail/C3304186.html">$1.97</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0115TR-3000/4429789">$1.32</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D">$1.32</a></td>
+    </tr>
+    <tr>
+      <td>MASWSS0179TR-3000**</td>
+      <td><a href="https://www.lcsc.com/product-detail/C3304462.html">$0.48</a></td>
+      <td><a href="https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0179TR-3000/4429803">$1.06</a></td>
+      <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D">$1.05</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(NA = Not Available. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026)</p>
+
+<h2 id="insertion-loss-and-isolation">Insertion Loss and Isolation</h2>
+
+<p>All the devices continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted greenish in the plots below.</p>
+
+<p><img src="/assets/images/smd_rf_switches/RF_insertion_loss.png" alt="Insertion loss" /></p>
+
+<p>Note that the absolute value of the insertion loss includes the loss of the measurement jig and breakout board and is not representative of the SMD device’s insertion loss. However, since all devices shared the same measurement jig and breakout board, they can be compared relative to each other.</p>
+
+<p><img src="/assets/images/smd_rf_switches/RF_isolation.png" alt="Isolation" /></p>
+
+<h2 id="linearity">Linearity</h2>
+
+<p>In order to obtain measurements of linearity at powers up to 30dBm I inserted a QB-101 amplifier between the signal generator and the switch. I added 40dB of attenuation between the switch and power meter to avoid overloading the power meter. The QB-101 amplifier started to compress at the higher end of the range, as shown in the curve below, but its P1 point is higher than 30 dBm so did not affect the conclusions of this test. All linearity measurements were made with a 2 MHz signal source.</p>
+
+<p><img src="/assets/images/smd_rf_switches/QB101.png" alt="QB101 input vs output power curve" /></p>
+
+<p>The linearity of the switches is shown in the plot below. The switches fall into four groups.</p>
+
+<ul>
+  <li>The switches with the worst linearity, corresponding to a P1 of roughly 8 dBm, were the MASWSS0115TR-3000 and AS179-92LF.</li>
+  <li>The next best switches, TPHWS314 and TPE4259-63, have a P1 of roughly 18 dBm.</li>
+  <li>The next best switches, XA17-G4K and HX4259-63, have a slightly better P1 of roughly 20 dBm.</li>
+  <li>The best switches, PE4259-63 and PE42421SCAA-Z, have a P1 of &gt; 30 dBm,</li>
+</ul>
+
+<p><img src="/assets/images/smd_rf_switches/linearity_measurements.png" alt="Linearity" /></p>
+
+<h1 id="conclusions">Conclusions</h1>
+
+<p>A table comparing the specified and measured performance of the switches tested is provided below. I also include whether the switch is capable of being controlled by a single logic line (i.e., it does not need complementary logic control lines) and the switch behavior (all switches behave the same except PE42421-SCAA-Z, which is reversed).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part #</th>
+      <th>LCSC price</th>
+      <th>Specified P1 [dBm]</th>
+      <th>P1@2MHz [dBm]</th>
       <th>Isolation [dB]*</th>
       <th>Single control</th>
       <th>Unconnected switch</th>
@@ -122,9 +221,8 @@
     <tr>
       <td>AS179-92LF</td>
       <td><a href="https://www.lcsc.com/product-detail/C83422.html">$1.36</a></td>
-      <td><a href="https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013">$1.06</a></td>
-      <td><a href="https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D">$1.06</a></td>
       <td>30</td>
+      <td>8</td>
       <td>-85</td>
       <td>No</td>
       <td>Float</td>
@@ -133,9 +231,8 @@
     <tr>
       <td>XA17-G4K</td>
       <td><a href="https://www.lcsc.com/product-detail/C513494.html">$0.54</a></td>
-      <td>NA</td>
-      <td>NA</td>
       <td>30</td>
+      <td>20</td>
       <td>-79</td>
       <td>No</td>
       <td>Float</td>
@@ -144,9 +241,8 @@
     <tr>
       <td>TPHWS314</td>
       <td><a href="https://www.lcsc.com/product-detail/C47117617.html">$0.14</a></td>
-      <td>NA</td>
-      <td>NA</td>
       <td>30</td>
+      <td>18</td>
       <td>-78</td>
       <td>No</td>
       <td>Float</td>
@@ -155,9 +251,8 @@
     <tr>
       <td>TPE4259-63</td>
       <td><a href="https://www.lcsc.com/product-detail/C47117600.html">$0.13</a></td>
-      <td>NA</td>
-      <td>NA</td>
       <td>31</td>
+      <td>18</td>
       <td>-76</td>
       <td>No</td>
       <td>Float</td>
@@ -166,9 +261,8 @@
     <tr>
       <td>HX4259-63-ST</td>
       <td><a href="https://www.lcsc.com/product-detail/C48031087.html">$0.15</a></td>
-      <td>NA</td>
-      <td>NA</td>
       <td>33.5</td>
+      <td>20</td>
       <td>-75</td>
       <td>Yes</td>
       <td>Ground</td>
@@ -177,9 +271,8 @@
     <tr>
       <td>PE4259-63</td>
       <td><a href="https://www.lcsc.com/product-detail/C470892.html">$0.62</a></td>
-      <td><a href="https://www.digikey.com/en/products/detail/psemi/4259-63/2614473?s=N4IgTCBcDaIAoFEAsYCsBOAtANgMwgF0BfIA">$0.79</a></td>
-      <td>NA</td>
       <td>33.5</td>
+      <td>&gt;30</td>
       <td>-64</td>
       <td>Yes</td>
       <td>Ground</td>
@@ -188,9 +281,8 @@
     <tr>
       <td>PE42421-SCAA-Z</td>
       <td><a href="https://www.lcsc.com/product-detail/C470893.html">$1.51</a></td>
-      <td><a href="https://www.digikey.com/en/products/detail/psemi/PE42421SCAA-Z/3728588?s=N4IgTCBcDaIAoFEAsYUEYDKBhAgjgtAFogC6AvkA">$0.79</a></td>
-      <td><a href="https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D">$0.79</a></td>
       <td>33.5</td>
+      <td>&gt;30</td>
       <td>-65</td>
       <td>Yes</td>
       <td>Ground</td>
@@ -199,9 +291,8 @@
     <tr>
       <td>MASWSS0115TR-3000</td>
       <td><a href="https://www.lcsc.com/product-detail/C3304186.html">$1.97</a></td>
-      <td><a href="https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0115TR-3000/4429789">$1.32</a></td>
-      <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D">$1.32</a></td>
       <td>25</td>
+      <td>8</td>
       <td>-48</td>
       <td>No</td>
       <td>Float</td>
@@ -210,9 +301,8 @@
     <tr>
       <td>MASWSS0179TR-3000**</td>
       <td><a href="https://www.lcsc.com/product-detail/C3304462.html">$0.48</a></td>
-      <td><a href="https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0179TR-3000/4429803">$1.06</a></td>
-      <td><a href="https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D">$1.05</a></td>
       <td>16</td>
+      <td> </td>
       <td>-48</td>
       <td>No</td>
       <td>Float</td>
@@ -221,58 +311,58 @@
   </tbody>
 </table>
 
-<p>(NA = Not Available. *At 1MHz. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026).</p>
+<p>(*At 1MHz. **Different footprint, added for reference.)</p>
 
-<p>All the devices continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted greenish in the plots below.</p>
-
-<p><img src="/assets/images/smd_rf_switches/RF_insertion_loss.png" alt="Insertion loss" /></p>
-
-<p>Note that the absolute value of the insertion loss includes the loss of the measurement jig and breakout board and is not representative of the SMD device’s insertion loss. However, since all devices shared the same measurement jig and breakout board, they can be compared relative to each other.</p>
-
-<p><img src="/assets/images/smd_rf_switches/RF_isolation.png" alt="Isolation" /></p>
-
-<h1 id="conclusions">Conclusions</h1>
-
-<p>Almost every switch tested works significantly better than the MASWSS0179 version used in the T41 V12 radio. The optimum parts from a cost and isolation performance perspective are provided in the table below. They are Asian brands not available through Digikey or Mouser. The AS179-92LF part has the best isolation performance and is available from US suppliers, but is also significantly more expensive.</p>
+<p>Almost every switch tested works significantly better than the MASWSS0179 version used in the T41 V12 radio. The optimum parts from a cost and isolation performance perspective are provided in the table below. They are Asian brands not available through Digikey or Mouser.</p>
 
 <table>
   <thead>
     <tr>
       <th>Part #</th>
-      <th>LCSC</th>
-      <th>Digikey</th>
-      <th>Mouser</th>
-      <th>P1 [dB]</th>
-      <th>Isolation [dB] @ 1 MHz</th>
+      <th>LCSC price</th>
+      <th>Specified P1 [dBm]</th>
+      <th>P1@2MHz [dBm]</th>
+      <th>Isolation [dB]*</th>
+      <th>Single control</th>
+      <th>Unconnected switch</th>
+      <th>RFC to pin 3 when pin 4 is HI</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>TPHWS314</td>
       <td><a href="https://www.lcsc.com/product-detail/C47117617.html">$0.14</a></td>
-      <td>NA</td>
-      <td>NA</td>
       <td>30</td>
+      <td>18</td>
       <td>-78</td>
+      <td>No</td>
+      <td>Float</td>
+      <td>Isolation</td>
     </tr>
     <tr>
       <td>TPE4259-63</td>
       <td><a href="https://www.lcsc.com/product-detail/C47117600.html">$0.13</a></td>
-      <td>NA</td>
-      <td>NA</td>
       <td>31</td>
+      <td>18</td>
       <td>-76</td>
+      <td>No</td>
+      <td>Float</td>
+      <td>Isolation</td>
     </tr>
     <tr>
       <td>HX4259-63-ST</td>
       <td><a href="https://www.lcsc.com/product-detail/C48031087.html">$0.15</a></td>
-      <td>NA</td>
-      <td>NA</td>
       <td>33.5</td>
+      <td>20</td>
       <td>-75</td>
+      <td>Yes</td>
+      <td>Ground</td>
+      <td>Isolation</td>
     </tr>
   </tbody>
 </table>
+
+<p>The AS179-92LF part has the best isolation performance and is available from US suppliers, but is also significantly more expensive and has the worst linearity at HF frequencies. If linearity is important, then the PE4259-63 and PE42421-SCAA-Z offer the best linearity with good isolation and are avaliable at Digikey.</p>
 
 
       </section>

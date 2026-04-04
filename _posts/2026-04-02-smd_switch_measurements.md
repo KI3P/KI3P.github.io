@@ -27,19 +27,21 @@ A calibrated NanoVNA was used to measure the insertion loss between the common R
 
 # Switches under test
 
-| Part # | LCSC | Digikey | Mouser | P1 [dB] | Isolation [dB]* | Single control | Unconnected switch | RFC to pin 3 when pin 4 is HI |
-|--------|------|---------|--------|------|-------|-----|----|----|
-| AS179-92LF | [$1.36](https://www.lcsc.com/product-detail/C83422.html) | [$1.06](https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013) | [$1.06](https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D) | 30 | -85 | No | Float | Isolation |
-| XA17-G4K | [$0.54](https://www.lcsc.com/product-detail/C513494.html) | NA | NA | 30 | -79 | No | Float | Isolation |
-| TPHWS314 | [$0.14](https://www.lcsc.com/product-detail/C47117617.html) | NA | NA | 30 | -78 | No | Float | Isolation |
-| TPE4259-63 | [$0.13](https://www.lcsc.com/product-detail/C47117600.html) | NA | NA | 31 | -76 | No | Float | Isolation |
-| HX4259-63-ST | [$0.15](https://www.lcsc.com/product-detail/C48031087.html) | NA | NA | 33.5 | -75 | Yes | Ground |  Isolation |
-| PE4259-63 | [$0.62](https://www.lcsc.com/product-detail/C470892.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/4259-63/2614473?s=N4IgTCBcDaIAoFEAsYCsBOAtANgMwgF0BfIA) | NA | 33.5 | -64 | Yes | Ground | Isolation |
-| PE42421-SCAA-Z | [$1.51](https://www.lcsc.com/product-detail/C470893.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/PE42421SCAA-Z/3728588?s=N4IgTCBcDaIAoFEAsYUEYDKBhAgjgtAFogC6AvkA) | [$0.79](https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D) | 33.5 | -65 | Yes | Ground | Insertion loss |
-| MASWSS0115TR-3000 | [$1.97](https://www.lcsc.com/product-detail/C3304186.html) | [$1.32](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0115TR-3000/4429789) | [$1.32](https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D) | 25 | -48 | No | Float | Isolation |
-| MASWSS0179TR-3000** | [$0.48](https://www.lcsc.com/product-detail/C3304462.html) | [$1.06](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0179TR-3000/4429803) | [$1.05](https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D) | 16 | -48 | No | Float | Insertion loss |
+| Part # | LCSC | Digikey | Mouser | 
+|--------|------|---------|--------|
+| AS179-92LF | [$1.36](https://www.lcsc.com/product-detail/C83422.html) | [$1.06](https://www.digikey.com/en/products/detail/skyworks-solutions-inc/AS179-92LF/2052013) | [$1.06](https://www.mouser.com/ProductDetail/Skyworks-Solutions-Inc/AS179-92LF?qs=WMHGlxXAKT9LJZT3OzoLeg%3D%3D) |
+| XA17-G4K | [$0.54](https://www.lcsc.com/product-detail/C513494.html) | NA | NA | 
+| TPHWS314 | [$0.14](https://www.lcsc.com/product-detail/C47117617.html) | NA | NA | 
+| TPE4259-63 | [$0.13](https://www.lcsc.com/product-detail/C47117600.html) | NA | NA | 
+| HX4259-63-ST | [$0.15](https://www.lcsc.com/product-detail/C48031087.html) | NA | NA | 
+| PE4259-63 | [$0.62](https://www.lcsc.com/product-detail/C470892.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/4259-63/2614473?s=N4IgTCBcDaIAoFEAsYCsBOAtANgMwgF0BfIA) | NA | 
+| PE42421-SCAA-Z | [$1.51](https://www.lcsc.com/product-detail/C470893.html) | [$0.79](https://www.digikey.com/en/products/detail/psemi/PE42421SCAA-Z/3728588?s=N4IgTCBcDaIAoFEAsYUEYDKBhAgjgtAFogC6AvkA) | [$0.79](https://www.mouser.com/ProductDetail/pSemi/PE42421SCAA-Z?qs=iw0hurA%2FaD1TPb5bw9tzqA%3D%3D) | 
+| MASWSS0115TR-3000 | [$1.97](https://www.lcsc.com/product-detail/C3304186.html) | [$1.32](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0115TR-3000/4429789) | [$1.32](https://www.mouser.com/ProductDetail/MACOM/MASWSS0115TR-3000?qs=3Wmz%2FrCSAaEflvnPFG8Leg%3D%3D) | 
+| MASWSS0179TR-3000** | [$0.48](https://www.lcsc.com/product-detail/C3304462.html) | [$1.06](https://www.digikey.com/en/products/detail/macom-technology-solutions/MASWSS0179TR-3000/4429803) | [$1.05](https://www.mouser.com/ProductDetail/MACOM/MASWSS0179TR-3000?qs=3Wmz%2FrCSAaGQmf%252BaN4qHBg%3D%3D) | 
 
-(NA = Not Available. *At 1MHz. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026).
+(NA = Not Available. **Different footprint, added for reference. Prices are for minimum order quantity, checked on 2 April 2026)
+
+## Insertion Loss and Isolation
 
 All the devices continued to perform well below their minimum rated frequency. The amateur radio bands are highlighted greenish in the plots below.
 
@@ -49,12 +51,46 @@ Note that the absolute value of the insertion loss includes the loss of the meas
 
 ![Isolation](/assets/images/smd_rf_switches/RF_isolation.png)
 
+## Linearity
+
+In order to obtain measurements of linearity at powers up to 30dBm I inserted a QB-101 amplifier between the signal generator and the switch. I added 40dB of attenuation between the switch and power meter to avoid overloading the power meter. The QB-101 amplifier started to compress at the higher end of the range, as shown in the curve below, but its P1 point is higher than 30 dBm so did not affect the conclusions of this test. All linearity measurements were made with a 2 MHz signal source.
+
+![QB101 input vs output power curve](/assets/images/smd_rf_switches/QB101.png)
+
+
+The linearity of the switches is shown in the plot below. The switches fall into four groups. 
+
+* The switches with the worst linearity, corresponding to a P1 of roughly 8 dBm, were the MASWSS0115TR-3000 and AS179-92LF.
+* The next best switches, TPHWS314 and TPE4259-63, have a P1 of roughly 18 dBm.
+* The next best switches, XA17-G4K and HX4259-63, have a slightly better P1 of roughly 20 dBm.
+* The best switches, PE4259-63 and PE42421SCAA-Z, have a P1 of > 30 dBm,
+
+![Linearity](/assets/images/smd_rf_switches/linearity_measurements.png)
+
 # Conclusions
 
-Almost every switch tested works significantly better than the MASWSS0179 version used in the T41 V12 radio. The optimum parts from a cost and isolation performance perspective are provided in the table below. They are Asian brands not available through Digikey or Mouser. The AS179-92LF part has the best isolation performance and is available from US suppliers, but is also significantly more expensive.
+A table comparing the specified and measured performance of the switches tested is provided below. I also include whether the switch is capable of being controlled by a single logic line (i.e., it does not need complementary logic control lines) and the switch behavior (all switches behave the same except PE42421-SCAA-Z, which is reversed).
 
-| Part # | LCSC | Digikey | Mouser | P1 [dB] | Isolation [dB] @ 1 MHz |
-|--------|------|---------|--------|------|-------|
-| TPHWS314 | [$0.14](https://www.lcsc.com/product-detail/C47117617.html) | NA | NA | 30 | -78 |
-| TPE4259-63 | [$0.13](https://www.lcsc.com/product-detail/C47117600.html) | NA | NA | 31 | -76 | 
-| HX4259-63-ST | [$0.15](https://www.lcsc.com/product-detail/C48031087.html) | NA | NA | 33.5 | -75 |
+| Part # | LCSC price |  Specified P1 [dBm] | P1@2MHz [dBm] | Isolation [dB]* | Single control | Unconnected switch | RFC to pin 3 when pin 4 is HI |
+|--------|------|-----|------|-------|-----|----|----|
+| AS179-92LF | [$1.36](https://www.lcsc.com/product-detail/C83422.html) | 30 | 8 | -85 | No | Float | Isolation |
+| XA17-G4K | [$0.54](https://www.lcsc.com/product-detail/C513494.html) | 30 | 20 | -79 | No | Float | Isolation |
+| TPHWS314 | [$0.14](https://www.lcsc.com/product-detail/C47117617.html) | 30 | 18 | -78 | No | Float | Isolation |
+| TPE4259-63 | [$0.13](https://www.lcsc.com/product-detail/C47117600.html) | 31 | 18 | -76 | No | Float | Isolation |
+| HX4259-63-ST | [$0.15](https://www.lcsc.com/product-detail/C48031087.html) | 33.5 | 20 | -75 | Yes | Ground |  Isolation |
+| PE4259-63 | [$0.62](https://www.lcsc.com/product-detail/C470892.html) | 33.5 | >30 | -64 | Yes | Ground | Isolation |
+| PE42421-SCAA-Z | [$1.51](https://www.lcsc.com/product-detail/C470893.html) | 33.5 | >30 | -65 | Yes | Ground | Insertion loss |
+| MASWSS0115TR-3000 | [$1.97](https://www.lcsc.com/product-detail/C3304186.html) | 25 | 8 | -48 | No | Float | Isolation |
+| MASWSS0179TR-3000** | [$0.48](https://www.lcsc.com/product-detail/C3304462.html) | 16 | | -48 | No | Float | Insertion loss |
+
+(*At 1MHz. **Different footprint, added for reference.)
+
+Almost every switch tested works significantly better than the MASWSS0179 version used in the T41 V12 radio. The optimum parts from a cost and isolation performance perspective are provided in the table below. They are Asian brands not available through Digikey or Mouser. 
+
+| Part # | LCSC price |  Specified P1 [dBm] | P1@2MHz [dBm] | Isolation [dB]* | Single control | Unconnected switch | RFC to pin 3 when pin 4 is HI |
+|--------|------|-----|------|-------|-----|----|----|
+| TPHWS314 | [$0.14](https://www.lcsc.com/product-detail/C47117617.html) | 30 | 18 | -78 | No | Float | Isolation |
+| TPE4259-63 | [$0.13](https://www.lcsc.com/product-detail/C47117600.html) | 31 | 18 | -76 | No | Float | Isolation |
+| HX4259-63-ST | [$0.15](https://www.lcsc.com/product-detail/C48031087.html) | 33.5 | 20 | -75 | Yes | Ground |  Isolation |
+
+The AS179-92LF part has the best isolation performance and is available from US suppliers, but is also significantly more expensive and has the worst linearity at HF frequencies. If linearity is important, then the PE4259-63 and PE42421-SCAA-Z offer the best linearity with good isolation and are avaliable at Digikey.
